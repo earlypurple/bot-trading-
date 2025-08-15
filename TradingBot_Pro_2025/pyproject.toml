@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "tradingbot_pro_2025"
+version = "0.1.0"
+description = "Professional trading bot platform"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "*"
+requests = "*"
+docker = "*"
+python-dotenv = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
