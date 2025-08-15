@@ -5,9 +5,9 @@ services:
     ports:
       - "5000:5000"
     env_file:
-      - .env
+      - .env.example
     volumes:
-      - .:/app
+      - ./src:/app/src
   frontend:
     image: node:18
     working_dir: /app/frontend
@@ -15,4 +15,4 @@ services:
       - ./frontend:/app/frontend
     ports:
       - "3000:3000"
-    command: ["npm", "start"]
+    command: sh -c "npm install && npm start"
