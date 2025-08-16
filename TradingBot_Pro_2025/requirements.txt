@@ -2,3 +2,8 @@ flask
 requests
 docker
 python-dotenv
+pandas
+numpy
+scikit-learn
+tensorflow
+yfinance

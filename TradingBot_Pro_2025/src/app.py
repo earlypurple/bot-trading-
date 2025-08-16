@@ -25,7 +25,7 @@ strategies = {
     "grid_adaptive_ia": GridAdaptiveIA(),
     "cross_chain_arbitrage": CrossChainArbitrage(),
     "defi_yield_farming": DeFiYieldFarming(),
-    "momentum_multi_asset": MomentumMultiAsset(min_bet=1.0),
+    "momentum_multi_asset": MomentumMultiAsset(asset_ticker='BTC-USD', model_path='btc_momentum_model.pkl'),
     "market_making": MarketMaking(),
     "options": Options(),
     "pairs_trading": PairsTrading(),
