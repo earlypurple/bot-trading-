@@ -10,6 +10,28 @@ TradingBot Pro 2025 est une plateforme de trading algorithmique ultra-innovante,
 	•	Multi-plateforme : Web, iOS/Android natif, Apple Watch, Wear OS, Progressive Web App.
 	•	Scalabilité entreprise : microservices Kubernetes, serverless, edge computing.
 
+ статут дю Projet
+Ce projet est actuellement en phase de développement alpha. La structure de base est en place, mais de nombreuses fonctionnalités avancées décrites dans ce README sont encore à l'état de placeholders ou de simulations. L'objectif est de construire itérativement sur cette fondation pour réaliser la vision complète du TradingBot Pro 2025.
+
+**Fonctionnalités Implémentées :**
+*   Serveur backend Flask avec des endpoints API pour le contrôle du bot.
+*   Structure de stratégie de base.
+*   Interface frontend simple (servie par le backend).
+*   Structure de test initiale.
+
+**Fonctionnalités en Cours de Développement (Simulées/Placeholder) :**
+*   Logique de trading au sein des stratégies (ex: `Scalping Quantique`).
+*   Modules pour la configuration intelligente, la détection de l'environnement et l'optimisation des paramètres.
+*   Module de conformité réglementaire (AI).
+
+ Historique des Modifications
+**Version 0.2.0 (Août 2025)**
+*   **Nouvelle fonctionnalité :** Ajout d'un module de conformité réglementaire (AI) avec un endpoint API.
+*   **Amélioration :** La stratégie `Scalping Quantique` a été étoffée avec une logique de trading simulée.
+*   **Structuration :** Création des répertoires et fichiers manquants (`config_intelligent`, `environment_detector`, `parameter_tuner`, `tests`).
+*   **Tests :** Ajout de tests unitaires pour le backend et correction des problèmes d'importation.
+*   **Documentation :** Mise à jour du `README.md` avec le statut du projet et l'historique des modifications.
+
 . Interface Utilisateur
 	•	Dashboard 3-boutons : Solde, gain journalier, BOT ON/OFF
 	•	Mode Dark/Light adaptatif selon horaire

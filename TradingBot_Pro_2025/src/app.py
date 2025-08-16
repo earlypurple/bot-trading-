@@ -12,6 +12,9 @@ from strategies.options import Options
 from strategies.pairs_trading import PairsTrading
 from strategies.statistical_arbitrage import StatisticalArbitrage
 
+# Compliance import
+from compliance.mica_sec_checker import MicaSecChecker
+
 # Determine the correct static folder path
 static_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'frontend', 'public'))
 
@@ -31,6 +34,12 @@ strategies = {
     "pairs_trading": PairsTrading(),
     "statistical_arbitrage": StatisticalArbitrage(),
 }
+compliance_checker = MicaSecChecker()
+
+@app.route('/api/compliance/status', methods=['GET'])
+def get_compliance_status():
+    """API endpoint to get the compliance status."""
+    return jsonify(compliance_checker.get_compliance_report())
 
 @app.route('/api/status', methods=['GET'])
 def get_bot_status():

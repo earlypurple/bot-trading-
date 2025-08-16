@@ -1,6 +1,6 @@
 from .base_strategy import BaseStrategy
-from ..models.momentum_model import MomentumModel
-from ..data.market_data import get_historical_data
+from models.momentum_model import MomentumModel
+from data.market_data import get_historical_data
 import os
 import datetime
 
