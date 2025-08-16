@@ -1,0 +1,26 @@
+2025-08-16 11:17:39,450 - root - INFO - Trading loop started.
+2025-08-16 11:17:39,451 - app - INFO - Starting Flask app...
+2025-08-16 11:17:39,451 - app - INFO - Starting Flask app...
+ * Serving Flask app 'app'
+ * Debug mode: on
+2025-08-16 11:17:39,504 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-16 11:17:39,504 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-16 11:17:46,833 - app - INFO - Received request to toggle bot status.
+2025-08-16 11:17:46,833 - app - INFO - Received request to toggle bot status.
+2025-08-16 11:17:46,833 - app - INFO - Bot has been turned ON.
+2025-08-16 11:17:46,833 - app - INFO - Bot has been turned ON.
+2025-08-16 11:17:46,834 - werkzeug - INFO - 127.0.0.1 - - [16/Aug/2025 11:17:46] "POST /api/toggle-bot HTTP/1.1" 200 -
+2025-08-16 11:17:46,849 - root - INFO - Strategy 'Momentum Multi-Asset (Live)' started.
+2025-08-16 11:17:46,849 - app - INFO - Strategy 'momentum_multi_asset' started via API.
+2025-08-16 11:17:46,849 - app - INFO - Strategy 'momentum_multi_asset' started via API.
+2025-08-16 11:17:46,850 - werkzeug - INFO - 127.0.0.1 - - [16/Aug/2025 11:17:46] "POST /api/strategies/momentum_multi_asset/start HTTP/1.1" 200 -
+2025-08-16 11:17:49,452 - root - INFO - Executing Momentum Multi-Asset (Live) for bitcoin...
+2025-08-16 11:17:49,527 - root - INFO - Current price of bitcoin: $117,575.00
+2025-08-16 11:17:49,527 - root - INFO - Price $117,575.00 is above threshold $50,000.00. SIMULATE BUY.
+2025-08-16 11:17:54,528 - root - INFO - Executing Momentum Multi-Asset (Live) for bitcoin...
+2025-08-16 11:17:54,585 - root - INFO - Current price of bitcoin: $117,575.00
+2025-08-16 11:17:54,585 - root - INFO - Price $117,575.00 is above threshold $50,000.00. SIMULATE BUY.
+2025-08-16 11:17:59,586 - root - INFO - Executing Momentum Multi-Asset (Live) for bitcoin...
+2025-08-16 11:17:59,658 - root - INFO - Current price of bitcoin: $117,575.00
+2025-08-16 11:17:59,658 - root - INFO - Price $117,575.00 is above threshold $50,000.00. SIMULATE BUY.

@@ -1,5 +1,8 @@
 import os
-from flask import Flask, jsonify, send_from_directory, request
+import time
+import threading
+import logging
+from flask import Flask, jsonify, send_from_directory, request, current_app
 
 # Strategy imports
 from strategies.scalping_quantique import ScalpingQuantique
@@ -20,6 +23,32 @@ static_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'f
 
 app = Flask(__name__, static_folder=static_folder, static_url_path='')
 
+def setup_logging(app_instance):
+    """Configures logging for the application."""
+    log_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'backend.log')
+    file_handler = logging.FileHandler(log_file_path)
+    file_handler.setLevel(logging.INFO)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    file_handler.setFormatter(formatter)
+
+    # Add handler to the root logger to catch logs from other modules
+    logging.getLogger().addHandler(file_handler)
+    logging.getLogger().setLevel(logging.INFO)
+
+    # Add handler to the Flask app's logger
+    app_instance.logger.addHandler(file_handler)
+    app_instance.logger.setLevel(logging.INFO)
+
+    # Also log to console for development
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(formatter)
+    logging.getLogger().addHandler(stream_handler)
+    app_instance.logger.addHandler(stream_handler)
+
+
+setup_logging(app)
+
+
 # In-memory status for the bot and strategies
 bot_status = {"status": "OFF", "active_strategies": []}
 daily_capital = {"amount": 1000.0} # Default daily capital
@@ -28,7 +57,7 @@ strategies = {
     "grid_adaptive_ia": GridAdaptiveIA(),
     "cross_chain_arbitrage": CrossChainArbitrage(),
     "defi_yield_farming": DeFiYieldFarming(),
-    "momentum_multi_asset": MomentumMultiAsset(asset_ticker='BTC-USD', model_path='btc_momentum_model.pkl'),
+    "momentum_multi_asset": MomentumMultiAsset(),
     "market_making": MarketMaking(),
     "options": Options(),
     "pairs_trading": PairsTrading(),
@@ -66,13 +95,17 @@ def set_daily_capital():
 @app.route('/api/toggle-bot', methods=['POST'])
 def toggle_bot():
     """API endpoint to toggle the bot ON/OFF."""
+    current_app.logger.info("Received request to toggle bot status.")
     if bot_status['status'] == 'OFF':
         bot_status['status'] = 'ON'
+        current_app.logger.info("Bot has been turned ON.")
     else:
         bot_status['status'] = 'OFF'
+        current_app.logger.info("Bot has been turned OFF.")
         # Also stop all strategies when turning the bot off
         for strategy in strategies.values():
-            strategy.stop()
+            if strategy.status == 'RUNNING':
+                strategy.stop()
     return jsonify(bot_status)
 
 
@@ -94,12 +127,15 @@ def start_strategy(strategy_name):
     """API endpoint to start a strategy."""
     strategy = strategies.get(strategy_name)
     if not strategy:
+        current_app.logger.error(f"Attempted to start non-existent strategy: {strategy_name}")
         return jsonify({"error": "Strategy not found"}), 404
 
     if bot_status['status'] == 'OFF':
+        current_app.logger.warning(f"Attempted to start strategy '{strategy_name}' while bot is OFF.")
         return jsonify({"error": "Bot is turned off. Cannot start strategy."}), 400
 
     strategy.start()
+    current_app.logger.info(f"Strategy '{strategy_name}' started via API.")
     return jsonify(strategy.get_status())
 
 @app.route('/api/strategies/<strategy_name>/stop', methods=['POST'])
@@ -108,7 +144,9 @@ def stop_strategy(strategy_name):
     strategy = strategies.get(strategy_name)
     if strategy:
         strategy.stop()
+        current_app.logger.info(f"Strategy '{strategy_name}' stopped via API.")
         return jsonify(strategy.get_status())
+    current_app.logger.error(f"Attempted to stop non-existent strategy: {strategy_name}")
     return jsonify({"error": "Strategy not found"}), 404
 
 @app.route('/', defaults={'path': ''})
@@ -120,5 +158,31 @@ def serve(path):
     else:
         return send_from_directory(app.static_folder, 'index.html')
 
+def trading_loop():
+    """
+    The main trading loop that runs in a background thread.
+    """
+    logging.info("Trading loop started.")
+    while True:
+        # Check if the bot is ON
+        if bot_status['status'] == 'ON':
+            # logging.debug("Bot is ON, executing strategies...")
+            for strategy_name, strategy_instance in strategies.items():
+                if strategy_instance.status == 'RUNNING':
+                    try:
+                        strategy_instance.execute()
+                    except Exception as e:
+                        logging.error(f"Error executing strategy {strategy_name}: {e}")
+        # else:
+        #     logging.debug("Bot is OFF, sleeping.")
+
+        time.sleep(5) # The loop runs every 5 seconds
+
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    # Start the trading loop in a background thread
+    trader_thread = threading.Thread(target=trading_loop, daemon=True)
+    trader_thread.start()
+
+    # Start the Flask app
+    app.logger.info("Starting Flask app...")
+    app.run(debug=True, port=5000, use_reloader=False) # use_reloader=False is important for threads

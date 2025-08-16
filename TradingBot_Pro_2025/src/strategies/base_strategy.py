@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+import logging
 
 class BaseStrategy(ABC):
     """
@@ -22,14 +23,14 @@ class BaseStrategy(ABC):
         Start the trading strategy.
         """
         self.status = "RUNNING"
-        print(f"Strategy {self.name} started.")
+        logging.info(f"Strategy '{self.name}' started.")
 
     def stop(self):
         """
         Stop the trading strategy.
         """
         self.status = "STOPPED"
-        print(f"Strategy {self.name} stopped.")
+        logging.info(f"Strategy '{self.name}' stopped.")
 
     def get_status(self):
         """

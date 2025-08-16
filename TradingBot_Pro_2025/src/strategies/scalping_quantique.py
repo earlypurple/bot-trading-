@@ -1,4 +1,5 @@
 import random
+import logging
 from .base_strategy import BaseStrategy
 
 class ScalpingQuantique(BaseStrategy):
@@ -19,10 +20,10 @@ class ScalpingQuantique(BaseStrategy):
         Simulates getting a trading signal from a quantum computer.
         In a real scenario, this would involve connecting to a quantum service like IBMQ or AWS Braket.
         """
-        print("Connecting to quantum computer simulator...")
+        logging.debug("Connecting to quantum computer simulator...")
         # Simulate a quantum computation result
         signal = random.choice(['BUY', 'SELL', 'HOLD'])
-        print(f"Quantum signal received: {signal}")
+        logging.debug(f"Quantum signal received: {signal}")
         return signal
 
     def execute(self):
@@ -35,21 +36,21 @@ class ScalpingQuantique(BaseStrategy):
         3. Placing trades based on the algorithm's output.
         """
         if self.status == "RUNNING":
-            print(f"Executing {self.name} strategy (Trade #{self.trades_executed + 1})...")
+            logging.info(f"Executing {self.name} strategy (Trade #{self.trades_executed + 1})...")
 
             # 1. Get signal from the "quantum" source
             signal = self._get_quantum_signal()
 
             # 2. Execute trade based on the signal
             if signal == 'BUY':
-                print("Executing BUY order...")
+                logging.info("Executing BUY order...")
                 # Placeholder for actual buy logic
                 self.trades_executed += 1
             elif signal == 'SELL':
-                print("Executing SELL order...")
+                logging.info("Executing SELL order...")
                 # Placeholder for actual sell logic
                 self.trades_executed += 1
             else:
-                print("Signal is HOLD. No trade executed.")
+                logging.info("Signal is HOLD. No trade executed.")
 
-            print("-" * 20)
+            logging.debug("-" * 20)
