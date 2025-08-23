@@ -1,0 +1,120 @@
+2025-08-23 22:46:06,429 - __main__ - INFO - app.py:494 - {"event": "IA Trading Avanc\u00e9e initialis\u00e9e avec succ\u00e8s", "logger": "__main__", "level": "info", "timestamp": "2025-08-23T20:46:06.429391Z"}
+2025-08-23 22:46:06,429 - ai_trading_enhanced - INFO - ai_trading_enhanced.py:788 - Paramètres IA configurés: Mode=moderate, Budget=150.0$, Perte max=75.0$
+2025-08-23 22:46:06,430 - __main__ - INFO - app.py:817 - {"event": "Starting TradingBot Pro 2025", "logger": "__main__", "level": "info", "timestamp": "2025-08-23T20:46:06.430621Z"}
+2025-08-23 22:46:06,430 - __main__ - INFO - app.py:818 - {"event": "Configuration: type", "logger": "__main__", "level": "info", "timestamp": "2025-08-23T20:46:06.430688Z"}
+2025-08-23 22:46:06,430 - __main__ - INFO - app.py:819 - {"event": "Debug mode: True", "logger": "__main__", "level": "info", "timestamp": "2025-08-23T20:46:06.430731Z"}
+2025-08-23 22:46:06,472 - werkzeug - INFO - _internal.py:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.132:5001
+2025-08-23 22:46:06,472 - werkzeug - INFO - _internal.py:97 - [33mPress CTRL+C to quit[0m
+2025-08-23 22:46:06,473 - werkzeug - INFO - _internal.py:97 -  * Restarting with stat
+2025-08-23 22:46:07,577 - __main__ - INFO - app.py:494 - {"event": "IA Trading Avanc\u00e9e initialis\u00e9e avec succ\u00e8s", "logger": "__main__", "level": "info", "timestamp": "2025-08-23T20:46:07.577134Z"}
+2025-08-23 22:46:07,577 - ai_trading_enhanced - INFO - ai_trading_enhanced.py:788 - Paramètres IA configurés: Mode=moderate, Budget=150.0$, Perte max=75.0$
+2025-08-23 22:46:07,579 - __main__ - INFO - app.py:817 - {"event": "Starting TradingBot Pro 2025", "logger": "__main__", "level": "info", "timestamp": "2025-08-23T20:46:07.579766Z"}
+2025-08-23 22:46:07,580 - __main__ - INFO - app.py:818 - {"event": "Configuration: type", "logger": "__main__", "level": "info", "timestamp": "2025-08-23T20:46:07.580189Z"}
+2025-08-23 22:46:07,580 - __main__ - INFO - app.py:819 - {"event": "Debug mode: True", "logger": "__main__", "level": "info", "timestamp": "2025-08-23T20:46:07.580247Z"}
+2025-08-23 22:46:07,591 - werkzeug - WARNING - _internal.py:97 -  * Debugger is active!
+2025-08-23 22:46:07,600 - werkzeug - INFO - _internal.py:97 -  * Debugger PIN: 131-488-926
+2025-08-23 22:46:08,040 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:08] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:46:10,784 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:10] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:46:18,038 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:18] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:46:21,752 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:21] "GET /?id=6b56b3e9-a665-48a7-aeba-c56f4438b1f3&vscodeBrowserReqId=1755981981746 HTTP/1.1" 200 -
+2025-08-23 22:46:21,760 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:21] "[36mGET /bundle.js HTTP/1.1[0m" 304 -
+2025-08-23 22:46:21,822 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:21] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:46:23,827 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:23] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:46:24,207 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:24] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:46:24,418 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:24] "GET /api/market-data HTTP/1.1" 200 -
+2025-08-23 22:46:26,297 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:26] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:46:27,048 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:27] "GET /api/market-data HTTP/1.1" 200 -
+2025-08-23 22:46:29,825 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:29] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:46:33,828 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:33] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:46:37,824 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:37] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:46:43,829 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:43] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:46:45,823 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:45] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:46:49,020 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:49] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:46:53,824 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:53] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:46:53,830 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:53] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:46:56,004 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:46:56] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:47:01,825 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:01] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:03,830 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:03] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:09,512 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:09] "GET /api/market-data HTTP/1.1" 200 -
+2025-08-23 22:47:09,824 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:09] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:13,830 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:13] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:14,784 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:14] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:47:17,824 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:17] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:23,830 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:23] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:25,823 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:25] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:26,259 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:26] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:47:26,639 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:26] "GET /api/market-data HTTP/1.1" 200 -
+2025-08-23 22:47:33,825 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:33] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:33,829 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:33] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:39,198 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:39] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:47:41,823 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:41] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:42,260 - ai_trading_enhanced - INFO - ai_trading_enhanced.py:788 - Paramètres IA configurés: Mode=moderate, Budget=150.0$, Perte max=75.0$
+2025-08-23 22:47:42,260 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:42] "POST /api/ai-configure HTTP/1.1" 200 -
+2025-08-23 22:47:42,263 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:42] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:43,144 - ai_trading_enhanced - INFO - ai_trading_enhanced.py:788 - Paramètres IA configurés: Mode=moderate, Budget=150.0$, Perte max=75.0$
+2025-08-23 22:47:43,145 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:43] "POST /api/ai-configure HTTP/1.1" 200 -
+2025-08-23 22:47:43,147 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:43] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:43,728 - ai_trading_enhanced - INFO - ai_trading_enhanced.py:788 - Paramètres IA configurés: Mode=moderate, Budget=150.0$, Perte max=75.0$
+2025-08-23 22:47:43,728 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:43] "POST /api/ai-configure HTTP/1.1" 200 -
+2025-08-23 22:47:43,730 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:43] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:43,830 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:43] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:48,423 - ai_trading_enhanced - ERROR - ai_trading_enhanced.py:189 - Erreur analyse sentiment: '>' not supported between instances of 'NoneType' and 'int'
+2025-08-23 22:47:48,423 - ai_trading_enhanced - ERROR - ai_trading_enhanced.py:261 - Erreur recommandation IA: unsupported operand type(s) for *: 'NoneType' and 'int'
+2025-08-23 22:47:48,429 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:48] "POST /api/ai-recommendation HTTP/1.1" 200 -
+2025-08-23 22:47:49,825 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:49] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:51,363 - __main__ - ERROR - app.py:717 - {"event": "Error executing AI auto-trade: coinbaseadvanced does not have a sandbox URL", "logger": "__main__", "level": "error", "timestamp": "2025-08-23T20:47:51.363485Z"}
+2025-08-23 22:47:51,363 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:51] "[35m[1mPOST /api/ai-auto-trade HTTP/1.1[0m" 500 -
+2025-08-23 22:47:53,830 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:53] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:47:53,985 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:53] "GET /api/market-data HTTP/1.1" 200 -
+2025-08-23 22:47:56,451 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:56] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:47:57,823 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:47:57] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:48:03,828 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:03] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:48:03,950 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:03] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:48:05,823 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:05] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:48:13,823 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:13] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:48:13,827 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:13] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:48:21,826 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:21] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:48:23,833 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:23] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:48:26,199 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:26] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:48:26,336 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:26] "GET /api/market-data HTTP/1.1" 200 -
+2025-08-23 22:48:28,934 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:28] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:48:29,825 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:29] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:48:33,828 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:33] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:48:37,833 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:37] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:48:39,284 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:39] "GET /api/market-data HTTP/1.1" 200 -
+2025-08-23 22:48:43,830 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:43] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:48:45,824 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:45] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:48:53,826 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:53] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:48:53,829 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:53] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:48:53,949 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:53] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:48:56,079 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:48:56] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:49:01,827 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:01] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:49:03,830 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:03] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:49:09,826 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:09] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:49:13,830 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:13] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:49:17,823 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:17] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:49:18,821 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:18] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:49:20,478 - __main__ - INFO - app.py:494 - {"event": "IA Trading Avanc\u00e9e initialis\u00e9e avec succ\u00e8s", "logger": "__main__", "level": "info", "timestamp": "2025-08-23T20:49:20.478504Z"}
+2025-08-23 22:49:20,478 - ai_trading_enhanced - INFO - ai_trading_enhanced.py:788 - Paramètres IA configurés: Mode=moderate, Budget=150.0$, Perte max=75.0$
+2025-08-23 22:49:20,479 - __main__ - INFO - app.py:817 - {"event": "Starting TradingBot Pro 2025", "logger": "__main__", "level": "info", "timestamp": "2025-08-23T20:49:20.479661Z"}
+2025-08-23 22:49:20,479 - __main__ - INFO - app.py:818 - {"event": "Configuration: type", "logger": "__main__", "level": "info", "timestamp": "2025-08-23T20:49:20.479724Z"}
+2025-08-23 22:49:20,479 - __main__ - INFO - app.py:819 - {"event": "Debug mode: True", "logger": "__main__", "level": "info", "timestamp": "2025-08-23T20:49:20.479769Z"}
+2025-08-23 22:49:23,831 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:23] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:49:24,534 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:24] "GET /api/market-data HTTP/1.1" 200 -
+2025-08-23 22:49:25,823 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:25] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:49:25,993 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:25] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:49:26,940 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:26] "GET /api/market-data HTTP/1.1" 200 -
+2025-08-23 22:49:33,826 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:33] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:49:33,829 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:33] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:49:36,580 - __main__ - ERROR - app.py:717 - {"event": "Error executing AI auto-trade: coinbaseadvanced does not have a sandbox URL", "logger": "__main__", "level": "error", "timestamp": "2025-08-23T20:49:36.580357Z"}
+2025-08-23 22:49:36,581 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:36] "[35m[1mPOST /api/ai-auto-trade HTTP/1.1[0m" 500 -
+2025-08-23 22:49:41,825 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:41] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:49:43,827 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:43] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:49:44,113 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:44] "GET /api/portfolio HTTP/1.1" 200 -
+2025-08-23 22:49:49,825 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:49] "GET /api/ai-status HTTP/1.1" 200 -
+2025-08-23 22:49:51,916 - __main__ - ERROR - app.py:717 - {"event": "Error executing AI auto-trade: coinbaseadvanced does not have a sandbox URL", "logger": "__main__", "level": "error", "timestamp": "2025-08-23T20:49:51.916760Z"}
+2025-08-23 22:49:51,917 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:51] "[35m[1mPOST /api/ai-auto-trade HTTP/1.1[0m" 500 -
+2025-08-23 22:49:53,848 - werkzeug - INFO - _internal.py:97 - 127.0.0.1 - - [23/Aug/2025 22:49:53] "GET /api/ai-status HTTP/1.1" 200 -

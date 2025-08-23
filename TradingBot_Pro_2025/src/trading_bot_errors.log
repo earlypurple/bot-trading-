@@ -1,0 +1,5 @@
+2025-08-23 22:47:48,423 - ai_trading_enhanced - ERROR - ai_trading_enhanced.py:189 - Erreur analyse sentiment: '>' not supported between instances of 'NoneType' and 'int'
+2025-08-23 22:47:48,423 - ai_trading_enhanced - ERROR - ai_trading_enhanced.py:261 - Erreur recommandation IA: unsupported operand type(s) for *: 'NoneType' and 'int'
+2025-08-23 22:47:51,363 - __main__ - ERROR - app.py:717 - {"event": "Error executing AI auto-trade: coinbaseadvanced does not have a sandbox URL", "logger": "__main__", "level": "error", "timestamp": "2025-08-23T20:47:51.363485Z"}
+2025-08-23 22:49:36,580 - __main__ - ERROR - app.py:717 - {"event": "Error executing AI auto-trade: coinbaseadvanced does not have a sandbox URL", "logger": "__main__", "level": "error", "timestamp": "2025-08-23T20:49:36.580357Z"}
+2025-08-23 22:49:51,916 - __main__ - ERROR - app.py:717 - {"event": "Error executing AI auto-trade: coinbaseadvanced does not have a sandbox URL", "logger": "__main__", "level": "error", "timestamp": "2025-08-23T20:49:51.916760Z"}

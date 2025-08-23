@@ -1,1 +1,1487 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TradingBot Pro 2025</title></head><body><div id="root"></div><script defer="defer" src="bundle.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TradingBot Pro 2025 - IA Avancée</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+.dashboard-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.header {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px 30px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header h1 {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 28px;
+  font-weight: 700;
+}
+.status-indicators {
+  display: flex;
+  gap: 15px;
+}
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.status-indicator.warning { background: rgba(255, 152, 0, 0.1); border-color: rgba(255, 152, 0, 0.3); }
+.status-indicator.error { background: rgba(244, 67, 54, 0.1); border-color: rgba(244, 67, 54, 0.3); }
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+@media (max-width: 1200px) {
+  .grid-container { grid-template-columns: 1fr; }
+}
+.card {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(0,0,0,0.05);
+}
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.metric-card {
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-color, #4CAF50);
+}
+.metric-value {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 8px 0;
+  color: var(--accent-color, #4CAF50);
+}
+.metric-label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.metric-subtitle {
+  font-size: 11px;
+  color: #999;
+  margin-top: 4px;
+}
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  justify-content: center;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+.btn-primary { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+.btn-success { background: linear-gradient(135deg, #4CAF50, #45a049); color: white; }
+.btn-warning { background: linear-gradient(135deg, #FF9800, #F57C00); color: white; }
+.btn-danger { background: linear-gradient(135deg, #f44336, #d32f2f); color: white; }
+.btn-secondary { background: linear-gradient(135deg, #6c757d, #5a6268); color: white; }
+.form-group {
+  margin-bottom: 20px;
+}
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+}
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  font-size: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255,255,255,0.8);
+}
+.form-control:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+.alert {
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin: 15px 0;
+  font-weight: 500;
+  border-left: 4px solid;
+}
+.alert-success { background: rgba(76, 175, 80, 0.1); color: #2e7d32; border-color: #4CAF50; }
+.alert-warning { background: rgba(255, 152, 0, 0.1); color: #ef6c00; border-color: #FF9800; }
+.alert-danger { background: rgba(244, 67, 54, 0.1); color: #c62828; border-color: #f44336; }
+.alert-info { background: rgba(33, 150, 243, 0.1); color: #1976d2; border-color: #2196F3; }
+.assets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+}
+.asset-card {
+  background: rgba(248, 249, 250, 0.8);
+  padding: 18px;
+  border-radius: 12px;
+  border-left: 4px solid #4CAF50;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.asset-card:hover {
+  background: rgba(248, 249, 250, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.asset-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.asset-symbol {
+  font-weight: 700;
+  font-size: 16px;
+  color: #2c3e50;
+}
+.asset-value {
+  font-weight: 700;
+  color: #4CAF50;
+  font-size: 16px;
+}
+.asset-details {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+}
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.market-card {
+  background: rgba(240, 248, 255, 0.8);
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+.market-card:hover {
+  background: rgba(240, 248, 255, 1);
+  border-color: #667eea;
+  transform: scale(1.02);
+}
+.market-card.selected {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+}
+.market-symbol {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+.market-price {
+  font-size: 18px;
+  color: #4CAF50;
+  margin: 6px 0;
+  font-weight: 600;
+}
+.market-change {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.change-positive { background: rgba(76, 175, 80, 0.2); color: #2e7d32; }
+.change-negative { background: rgba(244, 67, 54, 0.2); color: #c62828; }
+.ai-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+.loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.progress-bar {
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  height: 8px;
+  margin: 8px 0;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  transition: width 0.3s ease;
+}
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  padding: 16px 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  border-left: 4px solid #4CAF50;
+  z-index: 1000;
+  transform: translateX(400px);
+  transition: transform 0.3s ease;
+}
+.toast.show { transform: translateX(0); }
+.performance-chart {
+  height: 200px;
+  background: rgba(248, 249, 250, 0.5);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  font-size: 14px;
+  color: #666;
+}
+</style></head><body>
+<div class="dashboard-container">
+  <div class="header">
+    <h1>🤖 TradingBot Pro 2025 - IA Avancée</h1>
+    <div class="status-indicators">
+      <div class="status-indicator" id="connectionStatus">
+        <span class="status-dot">🟢</span>
+        <span>Connecté</span>
+      </div>
+      <div class="status-indicator" id="aiStatus">
+        <span class="status-dot">🤖</span>
+        <span>IA Active</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <!-- Section IA Avancée -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          🧠 Intelligence Artificielle Avancée
+        </div>
+        <button class="btn btn-primary" onclick="refreshAIStatus()">
+          <span id="refreshIcon">🔄</span> Actualiser
+        </button>
+      </div>
+      <div id="aiSection"></div>
+    </div>
+
+    <!-- Section Portefeuille -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          💰 Portefeuille Coinbase Pro
+        </div>
+        <button class="btn btn-secondary" onclick="refreshPortfolio()">
+          <span id="portfolioRefreshIcon">🔄</span> Actualiser
+        </button>
+      </div>
+      <div id="portfolioSection"></div>
+    </div>
+  </div>
+
+  <!-- Section Marché et Trading -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">
+        📈 Marché en Temps Réel & Trading IA
+      </div>
+      <div>
+        <button class="btn btn-warning" onclick="getAIRecommendation()">
+          🧠 Analyse IA
+        </button>
+        <button class="btn btn-success" onclick="executeAutoTrade()">
+          🤖 Trade Auto
+        </button>
+      </div>
+    </div>
+    <div id="marketSection"></div>
+    <div id="tradingControls"></div>
+    <div id="aiResults"></div>
+  </div>
+
+  <!-- Section Performances -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">
+        📊 Performances & Statistiques IA
+      </div>
+    </div>
+    <div id="performanceSection"></div>
+  </div>
+</div>
+
+<div id="root"></div>
+<script defer="defer" src="bundle.js"></script>
+
+<script>
+// Dashboard IA Avancé - TradingBot Pro 2025
+class TradingDashboard {
+  constructor() {
+    this.portfolioData = null;
+    this.marketData = null;
+    this.aiStatus = null;
+    this.selectedAsset = 'BTC/USD';
+    this.updateInterval = null;
+    this.isLoading = false;
+    
+    this.init();
+  }
+
+  init() {
+    this.startPeriodicUpdates();
+    this.setupEventListeners();
+    this.showToast('🚀 Dashboard IA Avancé chargé!', 'success');
+  }
+
+  startPeriodicUpdates() {
+    this.updateAllData();
+    
+    // Mise à jour intelligente avec fréquences différentes
+    setInterval(() => this.updateAIStatus(), 8000);      // IA toutes les 8s
+    setInterval(() => this.updatePortfolio(), 25000);     // Portfolio toutes les 25s
+    setInterval(() => this.updateMarketData(), 45000);    // Marché toutes les 45s
+  }
+
+  setupEventListeners() {
+    // Gestion des erreurs globales
+    window.addEventListener('error', (e) => {
+      this.showToast('❌ Erreur système détectée', 'error');
+    });
+  }
+
+  async updateAllData() {
+    if (this.isLoading) return;
+    this.isLoading = true;
+
+    try {
+      await Promise.all([
+        this.updatePortfolio(),
+        this.updateMarketData(),
+        this.updateAIStatus()
+      ]);
+    } catch (error) {
+      console.error('Erreur mise à jour globale:', error);
+      this.showToast('⚠️ Erreur de connexion', 'warning');
+    } finally {
+      this.isLoading = false;
+    }
+  }
+
+  async updatePortfolio() {
+    try {
+      const response = await fetch('/api/portfolio');
+      const data = await response.json();
+      
+      if (data.portfolio && data.portfolio.assets) {
+        this.portfolioData = data.portfolio;
+        this.renderPortfolioSection();
+        this.updateConnectionStatus('portfolio', true);
+      }
+    } catch (error) {
+      console.error('❌ Erreur portfolio:', error);
+      this.updateConnectionStatus('portfolio', false);
+    }
+  }
+
+  async updateMarketData() {
+    try {
+      const response = await fetch('/api/market-data');
+      const data = await response.json();
+      
+      if (data.market_data) {
+        this.marketData = data.market_data;
+        this.renderMarketSection();
+        this.updateConnectionStatus('market', true);
+      }
+    } catch (error) {
+      console.error('❌ Erreur marché:', error);
+      this.updateConnectionStatus('market', false);
+    }
+  }
+
+  async updateAIStatus() {
+    try {
+      const response = await fetch('/api/ai-status');
+      const data = await response.json();
+      
+      if (data.success) {
+        this.aiStatus = data;
+        this.renderAISection();
+        this.renderPerformanceSection();
+        this.updateConnectionStatus('ai', true);
+      }
+    } catch (error) {
+      console.error('❌ Erreur IA:', error);
+      this.updateConnectionStatus('ai', false);
+    }
+  }
+
+  renderAISection() {
+    const section = document.getElementById('aiSection');
+    if (!section || !this.aiStatus) return;
+
+    const summary = this.aiStatus.ai_summary;
+    const statusColor = summary.status === 'active' ? '#4CAF50' : '#f44336';
+    const profitColor = summary.total_profit_loss >= 0 ? '#4CAF50' : '#f44336';
+
+    section.innerHTML = `
+      <div class="metrics-grid">
+        <div class="metric-card" style="--accent-color: ${statusColor}">
+          <div class="metric-label">Statut IA</div>
+          <div class="metric-value">${summary.status === 'active' ? '🟢 Actif' : '🔴 Arrêté'}</div>
+          <div class="metric-subtitle">${summary.mode_name}</div>
+        </div>
+        <div class="metric-card" style="--accent-color: #9C27B0">
+          <div class="metric-label">Budget Quotidien</div>
+          <div class="metric-value">$${summary.daily_budget}</div>
+          <div class="metric-subtitle">Restant: $${summary.remaining_budget}</div>
+        </div>
+        <div class="metric-card" style="--accent-color: ${profitColor}">
+          <div class="metric-label">P&L Aujourd'hui</div>
+          <div class="metric-value">${summary.total_profit_loss >= 0 ? '+' : ''}$${summary.total_profit_loss}</div>
+          <div class="metric-subtitle">Taux: ${summary.success_rate || 0}%</div>
+        </div>
+        <div class="metric-card" style="--accent-color: #607D8B">
+          <div class="metric-label">Trades Exécutés</div>
+          <div class="metric-value">${summary.trades_executed}/${summary.max_trades_per_day}</div>
+          <div class="metric-subtitle">✅${summary.successful_trades} ❌${summary.failed_trades}</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Mode de Trading IA</label>
+        <select id="aiMode" class="form-control">
+          <option value="conservative" ${summary.mode === 'conservative' ? 'selected' : ''}>🛡️ Conservateur Plus</option>
+          <option value="moderate" ${summary.mode === 'moderate' ? 'selected' : ''}>⚖️ Modéré Intelligent</option>
+          <option value="aggressive" ${summary.mode === 'aggressive' ? 'selected' : ''}>🚀 Agressif Optimisé</option>
+          <option value="scalping" ${summary.mode === 'scalping' ? 'selected' : ''}>⚡ Scalping IA</option>
+        </select>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+        <div class="form-group">
+          <label class="form-label">Budget Quotidien ($)</label>
+          <input type="number" id="aiBudget" class="form-control" value="${summary.daily_budget}" min="10" max="2000" step="10">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Perte Max ($)</label>
+          <input type="number" id="aiMaxLoss" class="form-control" value="${summary.max_daily_loss}" min="5" max="1000" step="5">
+        </div>
+      </div>
+
+      <div class="ai-controls">
+        <button class="btn btn-primary" onclick="dashboard.configureAI()">
+          ⚙️ Configurer IA
+        </button>
+        <button class="btn btn-warning" onclick="dashboard.getAIRecommendation()">
+          🧠 Recommandation
+        </button>
+        <button class="btn btn-success" onclick="dashboard.executeAutoTrade()">
+          🤖 Trade Auto
+        </button>
+        <button class="btn btn-secondary" onclick="dashboard.resetAIStats()">
+          🔄 Reset Stats
+        </button>
+      </div>
+    `;
+  }
+
+  renderPortfolioSection() {
+    const section = document.getElementById('portfolioSection');
+    if (!section || !this.portfolioData) return;
+
+    section.innerHTML = `
+      <div class="metrics-grid">
+        <div class="metric-card" style="--accent-color: #4CAF50">
+          <div class="metric-label">Valeur Totale</div>
+          <div class="metric-value">$${this.portfolioData.total_value.toFixed(2)}</div>
+          <div class="metric-subtitle">${this.portfolioData.currency}</div>
+        </div>
+        <div class="metric-card" style="--accent-color: #2196F3">
+          <div class="metric-label">Nombre d'Actifs</div>
+          <div class="metric-value">${this.portfolioData.asset_count}</div>
+          <div class="metric-subtitle">Cryptomonnaies</div>
+        </div>
+        <div class="metric-card" style="--accent-color: #FF9800">
+          <div class="metric-label">Plus Gros Holding</div>
+          <div class="metric-value">${this.getTopAsset().symbol}</div>
+          <div class="metric-subtitle">$${this.getTopAsset().value}</div>
+        </div>
+      </div>
+
+      <div class="assets-grid">
+        ${this.portfolioData.assets.map(asset => `
+          <div class="asset-card" onclick="dashboard.selectAsset('${asset.symbol}/USD')">
+            <div class="asset-header">
+              <div class="asset-symbol">${asset.symbol}</div>
+              <div class="asset-value">$${asset.value_usd.toFixed(2)}</div>
+            </div>
+            <div class="asset-details">
+              Balance: ${parseFloat(asset.balance).toFixed(8)}<br>
+              Disponible: ${parseFloat(asset.available).toFixed(8)}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    // Mettre à jour les balances dans l'interface React si présentes
+    this.updateReactBalances();
+  }
+
+  renderMarketSection() {
+    const section = document.getElementById('marketSection');
+    if (!section || !this.marketData) return;
+
+    section.innerHTML = `
+      <div class="market-grid">
+        ${this.marketData.map(item => `
+          <div class="market-card ${this.selectedAsset === item.symbol ? 'selected' : ''}" 
+               onclick="dashboard.selectAsset('${item.symbol}')">
+            <div class="market-symbol">${item.symbol}</div>
+            <div class="market-price">$${item.price.toFixed(2)}</div>
+            <div class="market-change ${item.change_24h >= 0 ? 'change-positive' : 'change-negative'}">
+              ${item.change_24h >= 0 ? '+' : ''}${item.change_24h.toFixed(2)}%
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div id="tradingControls">
+        <h4 style="margin: 20px 0 15px 0;">🎯 Trading Manuel & IA</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
+          <div class="form-group">
+            <label class="form-label">Actif Sélectionné</label>
+            <select id="tradeSymbol" class="form-control">
+              ${this.marketData.map(item => `
+                <option value="${item.symbol}" ${this.selectedAsset === item.symbol ? 'selected' : ''}>
+                  ${item.symbol}
+                </option>
+              `).join('')}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Type d'Ordre</label>
+            <select id="tradeSide" class="form-control">
+              <option value="buy">🟢 Acheter (Buy)</option>
+              <option value="sell">🔴 Vendre (Sell)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Montant</label>
+            <input type="number" id="tradeAmount" class="form-control" value="0.001" step="0.001" min="0.001">
+          </div>
+        </div>
+
+        <div class="ai-controls">
+          <button class="btn btn-success" onclick="dashboard.executeManualTrade()">
+            🚀 Trade Manuel
+          </button>
+          <button class="btn btn-warning" onclick="dashboard.getAIRecommendation('${this.selectedAsset}')">
+            🧠 Analyse IA
+          </button>
+          <button class="btn btn-primary" onclick="dashboard.executeAutoTrade('${this.selectedAsset}')">
+            🤖 Auto Trade IA
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  renderPerformanceSection() {
+    const section = document.getElementById('performanceSection');
+    if (!section || !this.aiStatus) return;
+
+    const summary = this.aiStatus.ai_summary;
+    const winRate = summary.success_rate || 0;
+    const profitColor = summary.total_profit_loss >= 0 ? '#4CAF50' : '#f44336';
+
+    section.innerHTML = `
+      <div class="metrics-grid">
+        <div class="metric-card" style="--accent-color: #9C27B0">
+          <div class="metric-label">Score Performance</div>
+          <div class="metric-value">${(summary.performance_score || 50).toFixed(0)}/100</div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: ${summary.performance_score || 50}%"></div>
+          </div>
+        </div>
+        <div class="metric-card" style="--accent-color: #FF5722">
+          <div class="metric-label">Taux de Réussite</div>
+          <div class="metric-value">${winRate.toFixed(1)}%</div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: ${winRate}%"></div>
+          </div>
+        </div>
+        <div class="metric-card" style="--accent-color: ${profitColor}">
+          <div class="metric-label">Profit/Perte Total</div>
+          <div class="metric-value">${summary.total_profit_loss >= 0 ? '+' : ''}$${summary.total_profit_loss}</div>
+          <div class="metric-subtitle">Objectif: Break-even</div>
+        </div>
+        <div class="metric-card" style="--accent-color: #607D8B">
+          <div class="metric-label">Trades Restants</div>
+          <div class="metric-value">${summary.max_trades_per_day - summary.trades_executed}</div>
+          <div class="metric-subtitle">Limite: ${summary.max_trades_per_day}/jour</div>
+        </div>
+      </div>
+
+      <div class="performance-chart">
+        📈 Graphique de performance en développement
+        <br><small>Intégration Chart.js prévue dans la prochaine version</small>
+      </div>
+    `;
+  }
+
+  // Actions IA
+  async configureAI() {
+    const mode = document.getElementById('aiMode')?.value;
+    const budget = parseFloat(document.getElementById('aiBudget')?.value);
+    const maxLoss = parseFloat(document.getElementById('aiMaxLoss')?.value);
+
+    if (!mode || !budget || budget <= 0 || !maxLoss || maxLoss <= 0) {
+      this.showToast('❌ Paramètres invalides', 'error');
+      return;
+    }
+
+    this.showToast('⏳ Configuration IA...', 'info');
+
+    try {
+      const response = await fetch('/api/ai-configure', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mode, daily_budget: budget, max_daily_loss: maxLoss })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        this.showToast('✅ IA configurée avec succès!', 'success');
+        await this.updateAIStatus();
+      } else {
+        this.showToast(`❌ Erreur: ${data.error}`, 'error');
+      }
+    } catch (error) {
+      this.showToast('❌ Erreur réseau', 'error');
+    }
+  }
+
+  async getAIRecommendation(symbol = null) {
+    const targetSymbol = symbol || document.getElementById('tradeSymbol')?.value || this.selectedAsset;
+    
+    this.showToast('🧠 Analyse IA en cours...', 'info');
+
+    try {
+      const response = await fetch('/api/ai-recommendation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ symbol: targetSymbol })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        this.displayAIRecommendation(data.recommendation, targetSymbol);
+      } else {
+        this.showToast(`❌ Erreur: ${data.error}`, 'error');
+      }
+    } catch (error) {
+      this.showToast('❌ Erreur réseau', 'error');
+    }
+  }
+
+  async executeAutoTrade(symbol = null) {
+    const targetSymbol = symbol || document.getElementById('tradeSymbol')?.value || this.selectedAsset;
+    
+    this.showToast('🤖 Exécution trade IA...', 'info');
+
+    try {
+      const response = await fetch('/api/ai-auto-trade', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ symbol: targetSymbol })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        this.displayTradeResult(data, 'IA');
+        await this.updateAIStatus();
+      } else {
+        this.showToast(`⚠️ ${data.message}`, 'warning');
+      }
+    } catch (error) {
+      this.showToast('❌ Erreur réseau', 'error');
+    }
+  }
+
+  async executeManualTrade() {
+    const symbol = document.getElementById('tradeSymbol')?.value;
+    const side = document.getElementById('tradeSide')?.value;
+    const amount = parseFloat(document.getElementById('tradeAmount')?.value);
+
+    if (!amount || amount <= 0) {
+      this.showToast('❌ Montant invalide', 'error');
+      return;
+    }
+
+    this.showToast('🚀 Exécution trade manuel...', 'info');
+
+    try {
+      const response = await fetch('/api/test-trade', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ symbol, side, amount, type: 'market' })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        this.displayTradeResult(data, 'Manuel');
+      } else {
+        this.showToast(`❌ Erreur: ${data.error}`, 'error');
+      }
+    } catch (error) {
+      this.showToast('❌ Erreur réseau', 'error');
+    }
+  }
+
+  // Méthodes utilitaires
+  displayAIRecommendation(rec, symbol) {
+    const resultsDiv = document.getElementById('aiResults') || this.createResultsDiv();
+    const actionColor = rec.action === 'buy' ? '#4CAF50' : rec.action === 'sell' ? '#f44336' : '#FF9800';
+
+    resultsDiv.innerHTML = `
+      <div class="alert alert-info">
+        <h4>🧠 Recommandation IA pour ${symbol}</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0;">
+          <div><strong>Action:</strong> <span style="color: ${actionColor}; font-weight: bold;">${rec.action.toUpperCase()}</span></div>
+          <div><strong>Confiance:</strong> ${(rec.confidence * 100).toFixed(1)}%</div>
+          <div><strong>Montant:</strong> $${rec.recommended_amount.toFixed(2)}</div>
+          <div><strong>Score Actif:</strong> ${rec.asset_score?.toFixed(0) || 'N/A'}/100</div>
+        </div>
+        <div style="margin: 10px 0;"><strong>Stop Loss:</strong> ${rec.stop_loss_pct}% | <strong>Profit Target:</strong> ${rec.profit_target_pct}%</div>
+        <div style="font-size: 13px; margin-top: 10px;"><strong>Analyse:</strong> ${rec.reasoning}</div>
+        <div style="font-size: 12px; margin-top: 8px; color: #666;"><strong>Niveau de Risque:</strong> ${rec.risk_level || 'Moyen'} | <strong>Durée Estimée:</strong> ${rec.expected_duration || 'Variable'}</div>
+      </div>
+    `;
+
+    setTimeout(() => {
+      if (resultsDiv && resultsDiv.parentNode) {
+        resultsDiv.style.opacity = '0.7';
+      }
+    }, 30000);
+  }
+
+  displayTradeResult(data, type) {
+    const resultsDiv = document.getElementById('aiResults') || this.createResultsDiv();
+    const order = data.order;
+    const success = data.simulated_result?.success || data.success;
+    const resultColor = success ? '#4CAF50' : '#f44336';
+
+    resultsDiv.innerHTML = `
+      <div class="alert alert-success">
+        <h4>🚀 Trade ${type} Exécuté!</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0;">
+          <div><strong>Ordre:</strong> ${order.side.toUpperCase()} ${order.amount.toFixed(6)} ${order.symbol}</div>
+          <div><strong>Prix:</strong> $${order.price.toFixed(2)}</div>
+          <div><strong>Coût:</strong> $${order.cost.toFixed(2)}</div>
+          <div><strong>Confiance IA:</strong> ${((order.ai_confidence || 0.5) * 100).toFixed(1)}%</div>
+        </div>
+        ${data.simulated_result ? `
+        <div style="background: ${resultColor}20; padding: 10px; border-radius: 6px; margin-top: 10px;">
+          <strong>Résultat Simulé:</strong> <span style="color: ${resultColor};">${success ? 'Succès' : 'Échec'}</span> | 
+          <strong>P&L:</strong> <span style="color: ${resultColor};">${data.simulated_result.profit_loss >= 0 ? '+' : ''}$${data.simulated_result.profit_loss.toFixed(2)}</span>
+        </div>
+        ` : ''}
+        <div style="font-size: 12px; margin-top: 8px; color: #666;">ID: ${order.id} | Simulé: ${order.simulated ? 'Oui' : 'Non'}</div>
+      </div>
+    `;
+
+    this.showToast(`✅ Trade ${type.toLowerCase()} réussi!`, 'success');
+  }
+
+  createResultsDiv() {
+    let resultsDiv = document.getElementById('aiResults');
+    if (!resultsDiv) {
+      resultsDiv = document.createElement('div');
+      resultsDiv.id = 'aiResults';
+      resultsDiv.style.marginTop = '20px';
+      const marketSection = document.getElementById('marketSection');
+      if (marketSection && marketSection.parentNode) {
+        marketSection.parentNode.appendChild(resultsDiv);
+      }
+    }
+    return resultsDiv;
+  }
+
+  selectAsset(symbol) {
+    this.selectedAsset = symbol;
+    const tradeSymbol = document.getElementById('tradeSymbol');
+    if (tradeSymbol) {
+      tradeSymbol.value = symbol;
+    }
+    this.showToast(`📊 ${symbol} sélectionné`, 'info');
+    
+    // Mettre à jour l'affichage
+    this.renderMarketSection();
+  }
+
+  getTopAsset() {
+    if (!this.portfolioData || !this.portfolioData.assets.length) {
+      return { symbol: 'N/A', value: '0.00' };
+    }
+    
+    const topAsset = this.portfolioData.assets.reduce((max, asset) => 
+      asset.value_usd > max.value_usd ? asset : max
+    );
+    
+    return { symbol: topAsset.symbol, value: topAsset.value_usd.toFixed(2) };
+  }
+
+  updateReactBalances() {
+    if (!this.portfolioData) return;
+    
+    const balanceElements = document.querySelectorAll('[class*="balance"], [class*="capital"]');
+    balanceElements.forEach(el => {
+      if (el.textContent.includes('1,000.00') || el.textContent.includes('€') || el.textContent.includes('Chargement')) {
+        const totalValue = this.portfolioData.total_value || 0;
+        const currency = this.portfolioData.currency || 'USD';
+        el.textContent = `$${totalValue.toFixed(2)} ${currency}`;
+        el.style.color = '#4CAF50';
+        el.style.fontWeight = 'bold';
+      }
+    });
+  }
+
+  updateConnectionStatus(service, isConnected) {
+    const statusElement = document.getElementById('connectionStatus');
+    if (statusElement) {
+      if (isConnected) {
+        statusElement.className = 'status-indicator';
+        statusElement.innerHTML = '<span class="status-dot">🟢</span><span>Connecté</span>';
+      } else {
+        statusElement.className = 'status-indicator warning';
+        statusElement.innerHTML = '<span class="status-dot">🟡</span><span>Connexion instable</span>';
+      }
+    }
+  }
+
+  showToast(message, type = 'info') {
+    // Supprimer les anciens toasts
+    const existingToasts = document.querySelectorAll('.toast');
+    existingToasts.forEach(toast => toast.remove());
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span>${this.getToastIcon(type)}</span>
+        <span>${message}</span>
+      </div>
+    `;
+
+    // Couleur selon le type
+    const colors = {
+      success: '#4CAF50',
+      error: '#f44336', 
+      warning: '#FF9800',
+      info: '#2196F3'
+    };
+    toast.style.borderLeftColor = colors[type] || colors.info;
+
+    document.body.appendChild(toast);
+
+    // Animation d'apparition
+    setTimeout(() => toast.classList.add('show'), 100);
+
+    // Suppression automatique
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 300);
+    }, 4000);
+  }
+
+  getToastIcon(type) {
+    const icons = {
+      success: '✅',
+      error: '❌',
+      warning: '⚠️',
+      info: 'ℹ️'
+    };
+    return icons[type] || icons.info;
+  }
+
+  async resetAIStats() {
+    if (!confirm('Êtes-vous sûr de vouloir réinitialiser les statistiques IA ?')) {
+      return;
+    }
+
+    this.showToast('🔄 Réinitialisation des stats IA...', 'info');
+    
+    try {
+      // Appel API pour reset (à implémenter côté serveur)
+      await this.updateAIStatus();
+      this.showToast('✅ Statistiques réinitialisées!', 'success');
+    } catch (error) {
+      this.showToast('❌ Erreur lors de la réinitialisation', 'error');
+    }
+  }
+
+  async refreshAIStatus() {
+    const icon = document.getElementById('refreshIcon');
+    if (icon) {
+      icon.innerHTML = '<div class="loading-spinner"></div>';
+    }
+    
+    await this.updateAIStatus();
+    
+    if (icon) {
+      icon.innerHTML = '🔄';
+    }
+    this.showToast('🔄 IA actualisée', 'info');
+  }
+
+  async refreshPortfolio() {
+    const icon = document.getElementById('portfolioRefreshIcon');
+    if (icon) {
+      icon.innerHTML = '<div class="loading-spinner"></div>';
+    }
+    
+    await this.updatePortfolio();
+    
+    if (icon) {
+      icon.innerHTML = '🔄';
+    }
+    this.showToast('💰 Portefeuille actualisé', 'info');
+  }
+}
+
+// Initialisation du dashboard
+const dashboard = new TradingDashboard();
+
+// Fonctions globales pour compatibilité
+window.refreshAIStatus = () => dashboard.refreshAIStatus();
+window.refreshPortfolio = () => dashboard.refreshPortfolio();
+window.getAIRecommendation = (symbol) => dashboard.getAIRecommendation(symbol);
+window.executeAutoTrade = (symbol) => dashboard.executeAutoTrade(symbol);
+window.configureAI = () => dashboard.configureAI();
+window.executeTestTrade = () => dashboard.executeManualTrade();
+window.selectAssetForAI = (symbol) => dashboard.selectAsset(symbol);
+
+console.log('🚀 TradingBot Pro 2025 - Dashboard IA Avancé chargé!');
+</script>
+<script>
+// Script pour l'IA de trading automatisé et l'affichage amélioré
+setTimeout(() => {
+  let portfolioData = null;
+  let marketData = null;
+  let aiStatus = null;
+
+  async function updatePortfolioDisplay() {
+    try {
+      const response = await fetch('/api/portfolio');
+      const data = await response.json();
+      
+      if (data.portfolio && data.portfolio.assets) {
+        portfolioData = data.portfolio;
+        
+        // Mettre à jour le balance principal avec la valeur totale
+        const balanceElements = document.querySelectorAll('[class*="balance"], [class*="capital"]');
+        balanceElements.forEach(el => {
+          if (el.textContent.includes('1,000.00') || el.textContent.includes('€') || el.textContent.includes('Chargement')) {
+            const totalValue = portfolioData.total_value || 0;
+            const currency = portfolioData.currency || 'USD';
+            el.textContent = `$${totalValue.toFixed(2)} ${currency}`;
+            el.style.color = '#4CAF50';
+            el.style.fontWeight = 'bold';
+          }
+        });
+        
+        updatePortfolioSection();
+        console.log('✅ Portefeuille mis à jour:', portfolioData.asset_count, 'actifs, Total:', portfolioData.total_value, 'USD');
+      }
+    } catch (error) {
+      console.error('❌ Erreur mise à jour portefeuille:', error);
+    }
+  }
+
+  async function updateMarketData() {
+    try {
+      const response = await fetch('/api/market-data');
+      const data = await response.json();
+      
+      if (data.market_data) {
+        marketData = data.market_data;
+        updateTradingSection();
+      }
+    } catch (error) {
+      console.error('❌ Erreur données marché:', error);
+    }
+  }
+
+  async function updateAIStatus() {
+    try {
+      const response = await fetch('/api/ai-status');
+      const data = await response.json();
+      
+      if (data.success) {
+        aiStatus = data;
+        updateAISection();
+      }
+    } catch (error) {
+      console.error('❌ Erreur statut IA:', error);
+    }
+  }
+
+  function updatePortfolioSection() {
+    let portfolioSection = document.querySelector('.portfolio-details');
+    if (!portfolioSection && portfolioData && portfolioData.assets.length > 0) {
+      const dashboard = document.querySelector('[class*="dashboard"], .dashboard, #root > div');
+      if (dashboard) {
+        portfolioSection = document.createElement('div');
+        portfolioSection.className = 'portfolio-details';
+        dashboard.appendChild(portfolioSection);
+      }
+    }
+    
+    if (portfolioSection && portfolioData) {
+      portfolioSection.innerHTML = `
+        <h3>💰 Portefeuille Coinbase</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+          <div style="background: linear-gradient(135deg, #4CAF50, #45a049); padding: 20px; border-radius: 10px; color: white; text-align: center;">
+            <h4 style="margin: 0; font-size: 14px; opacity: 0.9;">Valeur Totale</h4>
+            <div style="font-size: 24px; font-weight: bold; margin: 5px 0;">$${portfolioData.total_value.toFixed(2)}</div>
+            <div style="font-size: 12px; opacity: 0.8;">${portfolioData.currency}</div>
+          </div>
+          <div style="background: linear-gradient(135deg, #2196F3, #1976D2); padding: 20px; border-radius: 10px; color: white; text-align: center;">
+            <h4 style="margin: 0; font-size: 14px; opacity: 0.9;">Nombre d'Actifs</h4>
+            <div style="font-size: 24px; font-weight: bold; margin: 5px 0;">${portfolioData.asset_count}</div>
+            <div style="font-size: 12px; opacity: 0.8;">Cryptomonnaies</div>
+          </div>
+          <div style="background: linear-gradient(135deg, #FF9800, #F57C00); padding: 20px; border-radius: 10px; color: white; text-align: center;">
+            <h4 style="margin: 0; font-size: 14px; opacity: 0.9;">Statut</h4>
+            <div style="font-size: 16px; font-weight: bold; margin: 5px 0;">✅ Connecté</div>
+            <div style="font-size: 12px; opacity: 0.8;">Coinbase Advanced</div>
+          </div>
+        </div>
+        
+        <h4>📊 Détail des Actifs</h4>
+        <div class="assets-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px;">
+          ${portfolioData.assets.map(asset => `
+            <div class="asset-item" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4CAF50;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <strong style="color: #2c3e50; font-size: 16px;">${asset.symbol}</strong>
+                <span style="color: #4CAF50; font-weight: bold;">$${asset.value_usd.toFixed(2)}</span>
+              </div>
+              <div style="font-size: 14px; color: #666; margin-bottom: 4px;">Balance: ${parseFloat(asset.balance).toFixed(8)}</div>
+              <div style="font-size: 14px; color: #666;">Disponible: ${parseFloat(asset.available).toFixed(8)}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+  }
+
+  function updateAISection() {
+    let aiSection = document.querySelector('.ai-section');
+    if (!aiSection) {
+      const dashboard = document.querySelector('[class*="dashboard"], .dashboard, #root > div');
+      if (dashboard) {
+        aiSection = document.createElement('div');
+        aiSection.className = 'ai-section';
+        aiSection.style.marginTop = '20px';
+        dashboard.insertBefore(aiSection, dashboard.firstChild);
+      }
+    }
+    
+    if (aiSection && aiStatus) {
+      const summary = aiStatus.ai_summary;
+      const statusColor = summary.status === 'active' ? '#4CAF50' : '#f44336';
+      const profitColor = summary.total_profit_loss >= 0 ? '#4CAF50' : '#f44336';
+      
+      aiSection.innerHTML = `
+        <h3>🤖 IA Trading Automatisé</h3>
+        <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 20px;">
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+            <div style="background: linear-gradient(135deg, ${statusColor}, ${statusColor}dd); padding: 15px; border-radius: 8px; color: white; text-align: center;">
+              <h4 style="margin: 0; font-size: 14px; opacity: 0.9;">Statut IA</h4>
+              <div style="font-size: 18px; font-weight: bold; margin: 5px 0;">${summary.status === 'active' ? '🟢 Actif' : '🔴 Arrêté'}</div>
+              <div style="font-size: 12px; opacity: 0.8;">${summary.mode_name}</div>
+            </div>
+            <div style="background: linear-gradient(135deg, #9C27B0, #7B1FA2); padding: 15px; border-radius: 8px; color: white; text-align: center;">
+              <h4 style="margin: 0; font-size: 14px; opacity: 0.9;">Budget Quotidien</h4>
+              <div style="font-size: 18px; font-weight: bold; margin: 5px 0;">$${summary.daily_budget}</div>
+              <div style="font-size: 12px; opacity: 0.8;">Restant: $${summary.remaining_budget}</div>
+            </div>
+            <div style="background: linear-gradient(135deg, ${profitColor}, ${profitColor}dd); padding: 15px; border-radius: 8px; color: white; text-align: center;">
+              <h4 style="margin: 0; font-size: 14px; opacity: 0.9;">P&L Aujourd'hui</h4>
+              <div style="font-size: 18px; font-weight: bold; margin: 5px 0;">${summary.total_profit_loss >= 0 ? '+' : ''}$${summary.total_profit_loss}</div>
+              <div style="font-size: 12px; opacity: 0.8;">Taux: ${summary.success_rate}%</div>
+            </div>
+            <div style="background: linear-gradient(135deg, #607D8B, #455A64); padding: 15px; border-radius: 8px; color: white; text-align: center;">
+              <h4 style="margin: 0; font-size: 14px; opacity: 0.9;">Trades</h4>
+              <div style="font-size: 18px; font-weight: bold; margin: 5px 0;">${summary.trades_executed}/${summary.max_trades_per_day}</div>
+              <div style="font-size: 12px; opacity: 0.8;">✅${summary.successful_trades} ❌${summary.failed_trades}</div>
+            </div>
+          </div>
+          
+          <h4>⚙️ Configuration IA</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
+            <div>
+              <label style="display: block; margin-bottom: 5px; font-weight: bold;">Mode de Trading:</label>
+              <select id="aiMode" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="conservative" ${summary.mode === 'conservative' ? 'selected' : ''}>🛡️ Conservateur</option>
+                <option value="moderate" ${summary.mode === 'moderate' ? 'selected' : ''}>⚖️ Modéré</option>
+                <option value="aggressive" ${summary.mode === 'aggressive' ? 'selected' : ''}>🚀 Agressif</option>
+              </select>
+            </div>
+            <div>
+              <label style="display: block; margin-bottom: 5px; font-weight: bold;">Budget Quotidien ($):</label>
+              <input type="number" id="aiBudget" value="${summary.daily_budget}" min="10" max="1000" step="10" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+            <div>
+              <label style="display: block; margin-bottom: 5px; font-weight: bold;">Perte Max ($):</label>
+              <input type="number" id="aiMaxLoss" value="${summary.max_daily_loss}" min="5" max="500" step="5" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+            <button onclick="configureAI()" style="background: linear-gradient(135deg, #2196F3, #1976D2); color: white; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer;">
+              ⚙️ Configurer IA
+            </button>
+            <button onclick="getAIRecommendation()" style="background: linear-gradient(135deg, #FF9800, #F57C00); color: white; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer;">
+              🧠 Recommandation IA
+            </button>
+            <button onclick="executeAutoTrade()" style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer;">
+              🤖 Trade Automatique
+            </button>
+          </div>
+          
+          <div id="aiResult" style="margin-top: 15px;"></div>
+        </div>
+      `;
+    }
+  }
+
+  function updateTradingSection() {
+    let tradingSection = document.querySelector('.trading-section');
+    if (!tradingSection) {
+      const dashboard = document.querySelector('[class*="dashboard"], .dashboard, #root > div');
+      if (dashboard) {
+        tradingSection = document.createElement('div');
+        tradingSection.className = 'trading-section';
+        tradingSection.style.marginTop = '20px';
+        dashboard.appendChild(tradingSection);
+      }
+    }
+    
+    if (tradingSection && marketData) {
+      tradingSection.innerHTML = `
+        <h3>� Données du Marché en Temps Réel</h3>
+        <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 20px;">
+            ${marketData.map(item => `
+              <div style="background: #f0f8ff; padding: 15px; border-radius: 8px; text-align: center; cursor: pointer;" onclick="selectAssetForAI('${item.symbol}')">
+                <div style="font-weight: bold; color: #2c3e50;">${item.symbol}</div>
+                <div style="font-size: 18px; color: #4CAF50; margin: 5px 0;">$${item.price.toFixed(2)}</div>
+                <div style="font-size: 12px; color: ${item.change_24h >= 0 ? '#4CAF50' : '#f44336'};">
+                  ${item.change_24h >= 0 ? '+' : ''}${item.change_24h.toFixed(2)}%
+                </div>
+              </div>
+            `).join('')}
+          </div>
+          
+          <h4>🎯 Trading Manuel</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
+            <div>
+              <label style="display: block; margin-bottom: 5px; font-weight: bold;">Paire de Trading:</label>
+              <select id="tradeSymbol" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                ${marketData.map(item => `<option value="${item.symbol}">${item.symbol}</option>`).join('')}
+              </select>
+            </div>
+            <div>
+              <label style="display: block; margin-bottom: 5px; font-weight: bold;">Type:</label>
+              <select id="tradeSide" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="buy">Acheter (Buy)</option>
+                <option value="sell">Vendre (Sell)</option>
+              </select>
+            </div>
+            <div>
+              <label style="display: block; margin-bottom: 5px; font-weight: bold;">Montant:</label>
+              <input type="number" id="tradeAmount" value="0.001" step="0.001" min="0.001" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+          </div>
+          
+          <button onclick="executeTestTrade()" style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white; border: none; padding: 12px 24px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%;">
+            🚀 Exécuter Trade Manuel (Simulation)
+          </button>
+          
+          <div id="tradeResult" style="margin-top: 15px;"></div>
+        </div>
+      `;
+    }
+  }
+
+  // Fonctions pour l'IA
+  window.configureAI = async function() {
+    const mode = document.getElementById('aiMode').value;
+    const budget = parseFloat(document.getElementById('aiBudget').value);
+    const maxLoss = parseFloat(document.getElementById('aiMaxLoss').value);
+    const resultDiv = document.getElementById('aiResult');
+    
+    if (!budget || budget <= 0 || !maxLoss || maxLoss <= 0) {
+      resultDiv.innerHTML = '<div style="background: #ffebee; color: #c62828; padding: 10px; border-radius: 4px;">❌ Budget et perte maximale doivent être positifs</div>';
+      return;
+    }
+    
+    resultDiv.innerHTML = '<div style="background: #e3f2fd; color: #1976d2; padding: 10px; border-radius: 4px;">⏳ Configuration de l\'IA...</div>';
+    
+    try {
+      const response = await fetch('/api/ai-configure', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mode, daily_budget: budget, max_daily_loss: maxLoss })
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        resultDiv.innerHTML = `
+          <div style="background: #e8f5e8; color: #2e7d32; padding: 15px; border-radius: 6px; border-left: 4px solid #4CAF50;">
+            <h4 style="margin: 0 0 10px 0;">✅ IA Configurée avec Succès!</h4>
+            <div>${data.message}</div>
+          </div>
+        `;
+        updateAIStatus(); // Refresh AI status
+      } else {
+        resultDiv.innerHTML = `<div style="background: #ffebee; color: #c62828; padding: 10px; border-radius: 4px;">❌ Erreur: ${data.error}</div>`;
+      }
+    } catch (error) {
+      resultDiv.innerHTML = `<div style="background: #ffebee; color: #c62828; padding: 10px; border-radius: 4px;">❌ Erreur réseau: ${error.message}</div>`;
+    }
+  };
+
+  window.getAIRecommendation = async function() {
+    const symbol = document.getElementById('tradeSymbol') ? document.getElementById('tradeSymbol').value : 'BTC/USD';
+    const resultDiv = document.getElementById('aiResult');
+    
+    resultDiv.innerHTML = '<div style="background: #e3f2fd; color: #1976d2; padding: 10px; border-radius: 4px;">⏳ Analyse IA en cours...</div>';
+    
+    try {
+      const response = await fetch('/api/ai-recommendation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ symbol })
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        const rec = data.recommendation;
+        const actionColor = rec.action === 'buy' ? '#4CAF50' : rec.action === 'sell' ? '#f44336' : '#FF9800';
+        
+        resultDiv.innerHTML = `
+          <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border-left: 4px solid ${actionColor};">
+            <h4 style="margin: 0 0 10px 0;">🧠 Recommandation IA pour ${symbol}</h4>
+            <div style="margin-bottom: 10px;"><strong>Action:</strong> <span style="color: ${actionColor}; font-weight: bold;">${rec.action.toUpperCase()}</span></div>
+            <div style="margin-bottom: 10px;"><strong>Confiance:</strong> ${(rec.confidence * 100).toFixed(1)}%</div>
+            <div style="margin-bottom: 10px;"><strong>Montant:</strong> $${rec.recommended_amount.toFixed(2)}</div>
+            <div style="margin-bottom: 10px;"><strong>Stop Loss:</strong> ${rec.stop_loss_pct}%</div>
+            <div style="margin-bottom: 10px;"><strong>Profit Target:</strong> ${rec.profit_target_pct}%</div>
+            <div style="font-size: 12px; color: #666; margin-top: 10px;"><strong>Analyse:</strong> ${rec.reasoning}</div>
+          </div>
+        `;
+      } else {
+        resultDiv.innerHTML = `<div style="background: #ffebee; color: #c62828; padding: 10px; border-radius: 4px;">❌ Erreur: ${data.error}</div>`;
+      }
+    } catch (error) {
+      resultDiv.innerHTML = `<div style="background: #ffebee; color: #c62828; padding: 10px; border-radius: 4px;">❌ Erreur réseau: ${error.message}</div>`;
+    }
+  };
+
+  window.executeAutoTrade = async function() {
+    const symbol = document.getElementById('tradeSymbol') ? document.getElementById('tradeSymbol').value : 'BTC/USD';
+    const resultDiv = document.getElementById('aiResult');
+    
+    resultDiv.innerHTML = '<div style="background: #e3f2fd; color: #1976d2; padding: 10px; border-radius: 4px;">⏳ Exécution du trade automatique IA...</div>';
+    
+    try {
+      const response = await fetch('/api/ai-auto-trade', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ symbol })
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        const order = data.order;
+        const result = data.simulated_result;
+        const resultColor = result.success ? '#4CAF50' : '#f44336';
+        
+        resultDiv.innerHTML = `
+          <div style="background: #e8f5e8; color: #2e7d32; padding: 15px; border-radius: 6px; border-left: 4px solid #4CAF50;">
+            <h4 style="margin: 0 0 10px 0;">🤖 Trade Automatique IA Exécuté!</h4>
+            <div><strong>Ordre:</strong> ${order.side.toUpperCase()} ${order.amount.toFixed(6)} ${order.symbol}</div>
+            <div><strong>Prix:</strong> $${order.price.toFixed(2)}</div>
+            <div><strong>Coût:</strong> $${order.cost.toFixed(2)}</div>
+            <div><strong>Confiance IA:</strong> ${(order.ai_confidence * 100).toFixed(1)}%</div>
+            <div style="margin-top: 10px; padding: 10px; background: ${resultColor}20; border-radius: 4px;">
+              <strong>Résultat Simulé:</strong> <span style="color: ${resultColor};">${result.success ? 'Succès' : 'Échec'}</span><br>
+              <strong>P&L:</strong> <span style="color: ${resultColor};">${result.profit_loss >= 0 ? '+' : ''}$${result.profit_loss.toFixed(2)}</span>
+            </div>
+            <div style="font-size: 12px; color: #666; margin-top: 8px;">ID: ${order.id} | Simulé: ${order.simulated ? 'Oui' : 'Non'}</div>
+          </div>
+        `;
+        updateAIStatus(); // Refresh AI status
+      } else {
+        resultDiv.innerHTML = `<div style="background: #fff3e0; color: #ef6c00; padding: 10px; border-radius: 4px;">⚠️ ${data.message}</div>`;
+      }
+    } catch (error) {
+      resultDiv.innerHTML = `<div style="background: #ffebee; color: #c62828; padding: 10px; border-radius: 4px;">❌ Erreur réseau: ${error.message}</div>`;
+    }
+  };
+
+  window.selectAssetForAI = function(symbol) {
+    const tradeSymbol = document.getElementById('tradeSymbol');
+    if (tradeSymbol) {
+      tradeSymbol.value = symbol;
+    }
+  };
+
+  // Fonction pour exécuter un trade manuel
+  window.executeTestTrade = async function() {
+    const symbol = document.getElementById('tradeSymbol').value;
+    const side = document.getElementById('tradeSide').value;
+    const amount = parseFloat(document.getElementById('tradeAmount').value);
+    const resultDiv = document.getElementById('tradeResult');
+    
+    if (!amount || amount <= 0) {
+      resultDiv.innerHTML = '<div style="background: #ffebee; color: #c62828; padding: 10px; border-radius: 4px;">❌ Montant invalide</div>';
+      return;
+    }
+    
+    resultDiv.innerHTML = '<div style="background: #e3f2fd; color: #1976d2; padding: 10px; border-radius: 4px;">⏳ Exécution du trade manuel...</div>';
+    
+    try {
+      const response = await fetch('/api/test-trade', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ symbol, side, amount, type: 'market' })
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        resultDiv.innerHTML = `
+          <div style="background: #e8f5e8; color: #2e7d32; padding: 15px; border-radius: 6px; border-left: 4px solid #4CAF50;">
+            <h4 style="margin: 0 0 10px 0;">✅ Trade Manuel Simulé avec Succès!</h4>
+            <div><strong>Ordre:</strong> ${data.order.side.toUpperCase()} ${data.order.amount} ${data.order.symbol}</div>
+            <div><strong>Prix:</strong> $${data.order.price.toFixed(2)}</div>
+            <div><strong>Coût Total:</strong> $${data.total_cost.toFixed(2)}</div>
+            <div style="font-size: 12px; margin-top: 8px; opacity: 0.8;">ID: ${data.order.id} | Simulé: ${data.order.simulated ? 'Oui' : 'Non'}</div>
+          </div>
+        `;
+      } else {
+        resultDiv.innerHTML = `<div style="background: #ffebee; color: #c62828; padding: 10px; border-radius: 4px;">❌ Erreur: ${data.error}</div>`;
+      }
+    } catch (error) {
+      resultDiv.innerHTML = `<div style="background: #ffebee; color: #c62828; padding: 10px; border-radius: 4px;">❌ Erreur réseau: ${error.message}</div>`;
+    }
+  };
+  
+  // Mise à jour initiale
+  updatePortfolioDisplay();
+  updateMarketData();
+  updateAIStatus();
+  
+  // Mise à jour automatique
+  setInterval(updatePortfolioDisplay, 30000);  // Portfolio toutes les 30s
+  setInterval(updateMarketData, 60000);        // Market data toutes les 60s
+  setInterval(updateAIStatus, 10000);          // AI status toutes les 10s
+}, 2000);
+</script>
+</body></html>

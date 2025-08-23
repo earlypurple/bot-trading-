@@ -2,12 +2,30 @@ import React, { useState, useEffect } from 'react';
 import './Dashboard.css';
 
 const Dashboard = () => {
-  const [balance, setBalance] = useState('1,000.00 €');
-  const [dailyGain, setDailyGain] = useState('+50.25 €');
+  const [balance, setBalance] = useState('Chargement...');
+  const [dailyGain, setDailyGain] = useState('+0.00 €');
   const [botStatus, setBotStatus] = useState('OFF');
   const [activeStrategies, setActiveStrategies] = useState([]);
   const [dailyCapital, setDailyCapital] = useState(1000);
   const [capitalInput, setCapitalInput] = useState(1000);
+  const [portfolioData, setPortfolioData] = useState(null);
+
+  const fetchPortfolio = async () => {
+    try {
+      const response = await fetch('/api/portfolio');
+      const data = await response.json();
+      
+      if (data.portfolio) {
+        const totalValue = data.portfolio.total_value;
+        const currency = data.portfolio.currency || 'EUR';
+        setBalance(`${totalValue.toFixed(2)} ${currency}`);
+        setPortfolioData(data.portfolio);
+      }
+    } catch (error) {
+      console.error("Error fetching portfolio:", error);
+      setBalance('Erreur connexion');
+    }
+  };
 
   const fetchStatus = async () => {
     try {
@@ -50,8 +68,15 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchStatus();
-    const interval = setInterval(fetchStatus, 5000); // Poll every 5 seconds
-    return () => clearInterval(interval);
+    fetchPortfolio(); // Charger le portefeuille au démarrage
+    
+    const statusInterval = setInterval(fetchStatus, 5000); // Poll status every 5 seconds
+    const portfolioInterval = setInterval(fetchPortfolio, 30000); // Poll portfolio every 30 seconds
+    
+    return () => {
+      clearInterval(statusInterval);
+      clearInterval(portfolioInterval);
+    };
   }, []);
 
   const getStatusColor = () => {
@@ -104,6 +129,35 @@ const Dashboard = () => {
           <p>Aucune stratégie active.</p>
         )}
       </div>
+      
+      {portfolioData && (
+        <div className="portfolio-details">
+          <h3>Détails du Portefeuille Coinbase</h3>
+          <p className="portfolio-status">
+            Status: <span style={{color: portfolioData.status === 'connected' ? 'green' : 'red'}}>
+              {portfolioData.status === 'connected' ? '🟢 Connecté' : '🔴 Déconnecté'}
+            </span>
+          </p>
+          <p>Exchange: {portfolioData.exchange}</p>
+          <p>Dernière mise à jour: {new Date(portfolioData.last_update).toLocaleString()}</p>
+          
+          {portfolioData.assets && portfolioData.assets.length > 0 && (
+            <div className="assets-list">
+              <h4>Actifs ({portfolioData.assets.length})</h4>
+              <div className="assets-grid">
+                {portfolioData.assets.map((asset, index) => (
+                  <div key={index} className="asset-item">
+                    <strong>{asset.symbol}</strong>
+                    <span>Total: {asset.balance.toFixed(8)}</span>
+                    <span>Disponible: {asset.available.toFixed(8)}</span>
+                    {asset.locked > 0 && <span>Bloqué: {asset.locked.toFixed(8)}</span>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
