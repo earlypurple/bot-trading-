@@ -69,6 +69,10 @@ class TradingAI:
         
         logger.info(f"Paramètres configurés: Mode={mode}, Budget={daily_budget}$, Perte max={max_daily_loss}$")
     
+    def configure_mode(self, mode: str, daily_budget: float, max_daily_loss: float):
+        """Alias pour set_trading_parameters pour compatibilité."""
+        self.set_trading_parameters(mode, daily_budget, max_daily_loss)
+    
     def reset_daily_stats_if_needed(self):
         """Remet à zéro les statistiques quotidiennes si nécessaire."""
         today = datetime.now().date()
@@ -130,43 +134,72 @@ class TradingAI:
             'avg_volatility': round(avg_volatility, 2)
         }
     
-    def calculate_technical_indicators(self, price_data: Dict) -> Dict:
-        """Calcule des indicateurs techniques simples."""
-        price = price_data.get('price', 0)
-        high_24h = price_data.get('high_24h', price)
-        low_24h = price_data.get('low_24h', price)
-        change_24h = price_data.get('change_24h', 0)
-        
-        # Position dans la range 24h
-        if high_24h != low_24h:
-            position_in_range = (price - low_24h) / (high_24h - low_24h)
-        else:
-            position_in_range = 0.5
-        
-        # Signal basé sur la position et le momentum
-        if position_in_range > 0.8 and change_24h > 2:
-            signal = 'strong_buy'
-            signal_strength = 0.9
-        elif position_in_range > 0.6 and change_24h > 0:
-            signal = 'buy'
-            signal_strength = 0.7
-        elif position_in_range < 0.2 and change_24h < -2:
-            signal = 'strong_sell'
-            signal_strength = 0.9
-        elif position_in_range < 0.4 and change_24h < 0:
-            signal = 'sell'
-            signal_strength = 0.7
-        else:
+    def calculate_technical_indicators(self, asset_data: Dict) -> Dict:
+        """Calcule les indicateurs techniques pour un actif."""
+        try:
+            # Validation et extraction sécurisée des données
+            price = float(asset_data.get('price', 0)) if asset_data.get('price') is not None else 0
+            change_24h = float(asset_data.get('change_24h', 0)) if asset_data.get('change_24h') is not None else 0
+            high_24h = float(asset_data.get('high_24h', price)) if asset_data.get('high_24h') is not None else price
+            low_24h = float(asset_data.get('low_24h', price)) if asset_data.get('low_24h') is not None else price
+            
+            # Vérifications de sécurité
+            if price <= 0:
+                return {
+                    'signal': 'hold',
+                    'signal_strength': 0.0,
+                    'position_in_range': 0.5,
+                    'momentum': 0.0,
+                    'volatility': 0.0
+                }
+            
+            # Calcul de la position dans le range 24h
+            if high_24h > low_24h:
+                position_in_range = (price - low_24h) / (high_24h - low_24h)
+            else:
+                position_in_range = 0.5  # Prix stable
+            
+            # Détermination du signal basé sur les indicateurs
             signal = 'hold'
             signal_strength = 0.5
-        
-        return {
-            'signal': signal,
-            'signal_strength': signal_strength,
-            'position_in_range': round(position_in_range, 3),
-            'momentum': change_24h,
-            'volatility': round(((high_24h - low_24h) / price) * 100, 2) if price > 0 else 0
-        }
+            
+            # Logic de signal améliorée avec validation
+            if position_in_range > 0.8 and change_24h > 2:
+                signal = 'strong_buy'
+                signal_strength = 0.9
+            elif position_in_range > 0.6 and change_24h > 0:
+                signal = 'buy'
+                signal_strength = 0.7
+            elif position_in_range < 0.2 and change_24h < -2:
+                signal = 'strong_sell'
+                signal_strength = 0.9
+            elif position_in_range < 0.4 and change_24h < 0:
+                signal = 'sell'
+                signal_strength = 0.7
+            else:
+                signal = 'hold'
+                signal_strength = 0.5
+            
+            # Calcul de la volatilité
+            volatility = ((high_24h - low_24h) / price) * 100 if price > 0 else 0
+            
+            return {
+                'signal': signal,
+                'signal_strength': signal_strength,
+                'position_in_range': round(position_in_range, 3),
+                'momentum': change_24h,
+                'volatility': round(volatility, 2)
+            }
+            
+        except (ValueError, TypeError, ZeroDivisionError) as e:
+            logger.warning(f"Erreur calcul indicateurs techniques: {e}")
+            return {
+                'signal': 'hold',
+                'signal_strength': 0.0,
+                'position_in_range': 0.5,
+                'momentum': 0.0,
+                'volatility': 0.0
+            }
     
     def should_execute_trade(self) -> Tuple[bool, str]:
         """Vérifie si les conditions permettent d'exécuter un trade."""
@@ -192,13 +225,23 @@ class TradingAI:
     def generate_trade_recommendation(self, symbol: str, market_data: List[Dict], portfolio_data: Dict) -> Dict:
         """Génère une recommandation de trade basée sur l'analyse IA."""
         try:
+            # Validation des données d'entrée
+            if not market_data or not isinstance(market_data, list):
+                return {
+                    'action': 'hold',
+                    'confidence': 0.0,
+                    'reasoning': 'Données de marché non disponibles',
+                    'recommended_amount': 0,
+                    'risk_level': 'low'
+                }
+            
             # Analyse du sentiment général du marché
             market_sentiment = self.analyze_market_sentiment(market_data)
             
             # Recherche des données de l'actif spécifique
             asset_data = None
             for item in market_data:
-                if item['symbol'] == symbol:
+                if item.get('symbol') == symbol:
                     asset_data = item
                     break
             
@@ -210,6 +253,18 @@ class TradingAI:
                     'recommended_amount': 0,
                     'risk_level': 'unknown'
                 }
+            
+            # Validation des données de l'actif
+            required_fields = ['price', 'change_24h', 'high_24h', 'low_24h']
+            for field in required_fields:
+                if asset_data.get(field) is None:
+                    return {
+                        'action': 'hold',
+                        'confidence': 0.0,
+                        'reasoning': f'Données incomplètes pour {symbol} (manque {field})',
+                        'recommended_amount': 0,
+                        'risk_level': 'unknown'
+                    }
             
             # Analyse technique de l'actif
             technical_analysis = self.calculate_technical_indicators(asset_data)
@@ -322,3 +377,6 @@ class TradingAI:
 
 # Instance globale de l'IA
 trading_ai = TradingAI()
+
+# Alias pour compatibilité
+AITrading = TradingAI

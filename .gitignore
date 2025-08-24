@@ -1,0 +1,43 @@
+# Environnement virtuel
+.venv/
+venv/
+env/
+
+# Fichiers de configuration sensibles
+*.env
+*credentials*
+*coinbase*.env
+
+# Logs et bases de données
+*.log
+*.db
+logs/
+*.sqlite
+*.sqlite3
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.swp
+*.swo
+.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Rapports et résultats de tests
+*_report_*.json
+*_report.json
+
+# Dossiers d'IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# Fichiers de build
+*.pyc
+__pycache__/
+*.so
+*.egg-info/
+dist/
+build/
