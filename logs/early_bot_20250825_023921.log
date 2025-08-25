@@ -1,0 +1,15 @@
+2025-08-25 02:39:21 | INFO     | EarlyBotTrading | ================================================================================
+2025-08-25 02:39:21 | INFO     | EarlyBotTrading | 🚀 EARLY-BOT-TRADING - SYSTÈME DE LOGGING INITIALISÉ
+2025-08-25 02:39:21 | INFO     | EarlyBotTrading | ================================================================================
+2025-08-25 02:39:21 | INFO     | EarlyBotTrading | 📁 Fichier log principal: /Users/johan/ia_env/bot-trading-/Early-Bot-Trading/logs/early_bot_20250825_023921.log
+2025-08-25 02:39:21 | INFO     | EarlyBotTrading | 🚨 Fichier erreurs: /Users/johan/ia_env/bot-trading-/Early-Bot-Trading/logs/early_bot_errors_20250825_023921.log
+2025-08-25 02:39:21 | INFO     | EarlyBotTrading | 💰 Fichier trading: /Users/johan/ia_env/bot-trading-/Early-Bot-Trading/logs/early_bot_trading_20250825_023921.log
+2025-08-25 02:39:21 | INFO     | EarlyBotTrading | 🔗 Fichier API: /Users/johan/ia_env/bot-trading-/Early-Bot-Trading/logs/early_bot_api_20250825_023921.log
+2025-08-25 02:39:21 | INFO     | EarlyBotTrading | 🕐 Session démarrée: 2025-08-25 02:39:21
+2025-08-25 02:39:21 | INFO     | EarlyBotTrading | ================================================================================
+2025-08-25 02:39:21 | INFO     | EarlyBotTrading | 🧪 Test du système de logging...
+2025-08-25 02:39:21 | DEBUG    | EarlyBotTrading | Message de debug
+2025-08-25 02:39:21 | WARNING  | EarlyBotTrading | Message d'avertissement
+2025-08-25 02:39:21 | ERROR    | EarlyBotTrading | Message d'erreur de test
+2025-08-25 02:39:21 | INFO     | CoinbaseAPI | 🔗 Test API Coinbase
+2025-08-25 02:39:21 | INFO     | EarlyBotTrading | ✅ Tests terminés - Logs disponibles dans: /Users/johan/ia_env/bot-trading-/Early-Bot-Trading/logs/early_bot_20250825_023921.log

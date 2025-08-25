@@ -1,0 +1,44 @@
+{
+  "portfolio": {
+    "total_equity": "11.86",
+    "daily_pnl": "0.00",
+    "daily_pnl_class": "positive",
+    "positions_count": 3,
+    "win_rate": "0.0%",
+    "trades_today": 0
+  },
+  "positions": [
+    {
+      "display_name": "ETC-EUR",
+      "symbol": "ETC",
+      "quantity": "0.02802455",
+      "value_eur": "0.61",
+      "price": "21.8400",
+      "pnl": "+0.00 \u20ac",
+      "pnl_class": "positive"
+    },
+    {
+      "display_name": "USDC-EUR",
+      "symbol": "USDC",
+      "quantity": "5.61733200",
+      "value_eur": "5.62",
+      "price": "1.0000",
+      "pnl": "+0.00 \u20ac",
+      "pnl_class": "positive"
+    },
+    {
+      "display_name": "BCH-EUR",
+      "symbol": "BCH",
+      "quantity": "0.00983915",
+      "value_eur": "5.52",
+      "price": "561.4200",
+      "pnl": "+0.00 \u20ac",
+      "pnl_class": "positive"
+    }
+  ],
+  "status": {
+    "bot_running": true,
+    "mode": "\u2696\ufe0f Normal",
+    "last_update": "2025-08-25T12:32:01.292370"
+  }
+}

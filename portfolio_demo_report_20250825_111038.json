@@ -1,0 +1,145 @@
+{
+  "timestamp": "2025-08-25T11:10:38.517435",
+  "total_value": 15.43,
+  "portfolio": {
+    "BCH": {
+      "balance": 0.01234,
+      "price_usd": 470.85,
+      "usd_value": 5.8,
+      "percentage": 37.58911211924822,
+      "change_24h": -2.3,
+      "volatility": 45.2,
+      "risk_score": 52,
+      "performance_score": 65,
+      "recommendation": "CONSERVER",
+      "volume_24h": 125000000,
+      "market_cap": 9300000000
+    },
+    "ETH": {
+      "balance": 0.00213,
+      "price_usd": 2485.25,
+      "usd_value": 5.29,
+      "percentage": 34.283862605314326,
+      "change_24h": 1.8,
+      "volatility": 38.1,
+      "risk_score": 35,
+      "performance_score": 78,
+      "recommendation": "ACHETER",
+      "volume_24h": 890000000,
+      "market_cap": 299000000000
+    },
+    "SOL": {
+      "balance": 0.0891,
+      "price_usd": 152.67,
+      "usd_value": 1.36,
+      "percentage": 8.81399870382372,
+      "change_24h": 5.2,
+      "volatility": 62.3,
+      "risk_score": 58,
+      "performance_score": 82,
+      "recommendation": "CONSERVER",
+      "volume_24h": 245000000,
+      "market_cap": 71000000000
+    },
+    "FLR": {
+      "balance": 15.234,
+      "price_usd": 0.088,
+      "usd_value": 1.34,
+      "percentage": 8.684381075826312,
+      "change_24h": -1.2,
+      "volatility": 78.5,
+      "risk_score": 75,
+      "performance_score": 45,
+      "recommendation": "OBSERVER",
+      "volume_24h": 12000000,
+      "market_cap": 2100000000
+    },
+    "SHIB": {
+      "balance": 45678.91,
+      "price_usd": 2e-05,
+      "usd_value": 0.91,
+      "percentage": 5.897602073882048,
+      "change_24h": 8.5,
+      "volatility": 95.2,
+      "risk_score": 85,
+      "performance_score": 90,
+      "recommendation": "VENDRE",
+      "volume_24h": 156000000,
+      "market_cap": 15200000000
+    },
+    "ETC": {
+      "balance": 0.0234,
+      "price_usd": 27.78,
+      "usd_value": 0.65,
+      "percentage": 4.212572909915749,
+      "change_24h": -0.8,
+      "volatility": 52.1,
+      "risk_score": 62,
+      "performance_score": 55,
+      "recommendation": "OBSERVER",
+      "volume_24h": 34000000,
+      "market_cap": 4100000000
+    },
+    "API3": {
+      "balance": 0.456,
+      "price_usd": 1.75,
+      "usd_value": 0.08,
+      "percentage": 0.5184705119896306,
+      "change_24h": 12.3,
+      "volatility": 125.8,
+      "risk_score": 88,
+      "performance_score": 95,
+      "recommendation": "RÉDUIRE",
+      "volume_24h": 8500000,
+      "market_cap": 175000000
+    }
+  },
+  "metrics": {
+    "daily_change": 1.2,
+    "portfolio_volatility": 58.3,
+    "diversification_score": 72,
+    "concentration_risk": 36.5,
+    "num_assets": 7,
+    "risk_adjusted_return": 0.89,
+    "balance_quality": "MODÉRÉMENT ÉQUILIBRÉ"
+  },
+  "alerts": [
+    {
+      "type": "RISQUE_ÉLEVÉ",
+      "currency": "SHIB",
+      "message": "SHIB présente un risque élevé (85/100)",
+      "severity": "MEDIUM",
+      "action": "Surveiller ou réduire la position"
+    }
+  ],
+  "recommendations": [
+    {
+      "type": "DIVERSIFICATION",
+      "priority": "MEDIUM",
+      "message": "Ajouter USDC pour plus de stabilité",
+      "action": "Convertir 20% des altcoins vers USDC",
+      "benefit": "Réduction du risque global de 15%"
+    },
+    {
+      "type": "REBALANCING",
+      "priority": "LOW",
+      "message": "BCH et ETH dominent le portfolio",
+      "action": "Diversifier vers d'autres cryptos de qualité",
+      "benefit": "Meilleure répartition des risques"
+    }
+  ],
+  "diversification_score": 72,
+  "rebalancing_suggestion": {
+    "needed": true,
+    "suggestions": [
+      {
+        "risk_level": "high_risk",
+        "action": "Réduire",
+        "current": 19.7,
+        "target": 15.0,
+        "diff": 4.7
+      }
+    ],
+    "estimated_benefit": "Réduction du risque de 12%"
+  }
+}

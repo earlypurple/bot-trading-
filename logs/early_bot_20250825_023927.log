@@ -1,0 +1,24 @@
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | ================================================================================
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | 🚀 EARLY-BOT-TRADING - SYSTÈME DE LOGGING INITIALISÉ
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | ================================================================================
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | 📁 Fichier log principal: /Users/johan/ia_env/bot-trading-/Early-Bot-Trading/logs/early_bot_20250825_023927.log
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | 🚨 Fichier erreurs: /Users/johan/ia_env/bot-trading-/Early-Bot-Trading/logs/early_bot_errors_20250825_023927.log
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | 💰 Fichier trading: /Users/johan/ia_env/bot-trading-/Early-Bot-Trading/logs/early_bot_trading_20250825_023927.log
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | 🔗 Fichier API: /Users/johan/ia_env/bot-trading-/Early-Bot-Trading/logs/early_bot_api_20250825_023927.log
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | 🕐 Session démarrée: 2025-08-25 02:39:27
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | ================================================================================
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | 🤖 Initialisation d'Early-Bot-Trading...
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | 📊 Configuration chargée
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | 🎯 Certification: TBPRO2025-1756037390
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | 🔐 Configuration de l'exchange Coinbase...
+2025-08-25 02:39:27 | DEBUG    | EarlyBotTrading | 📝 Création de l'instance CCXT Coinbase
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | 🔐 Configuration CCXT terminée
+2025-08-25 02:39:27 | INFO     | EarlyBotTrading | 🔐 Test authentification avec clés CDP...
+2025-08-25 02:39:27 | DEBUG    | CoinbaseAPI | ✅ API GET fetch_balance
+2025-08-25 02:39:30 | DEBUG    | CoinbaseAPI | ✅ API GET fetch_balance
+2025-08-25 02:39:30 | DEBUG    | CoinbaseAPI | 📥 Réponse: Balance obtenue: 54 entrées
+2025-08-25 02:39:30 | INFO     | EarlyBotTrading | ✅ Authentification CDP réussie !
+2025-08-25 02:39:30 | DEBUG    | EarlyBotTrading | 📋 Récupération des comptes...
+2025-08-25 02:39:30 | DEBUG    | CoinbaseAPI | ✅ API GET fetch_accounts
+2025-08-25 02:39:30 | DEBUG    | CoinbaseAPI | ✅ API GET fetch_accounts
+2025-08-25 02:39:30 | DEBUG    | CoinbaseAPI | 📥 Réponse: 51 comptes trouvés

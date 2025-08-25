@@ -1,0 +1,6 @@
+2025-08-25 02:58:00 | DEBUG    | CoinbaseAPI | ✅ API GET fetch_balance
+2025-08-25 02:58:02 | DEBUG    | CoinbaseAPI | ✅ API GET fetch_balance
+2025-08-25 02:58:02 | DEBUG    | CoinbaseAPI | 📥 Réponse: Balance obtenue: 54 entrées
+2025-08-25 02:58:02 | DEBUG    | CoinbaseAPI | ✅ API GET fetch_accounts
+2025-08-25 02:58:03 | DEBUG    | CoinbaseAPI | ✅ API GET fetch_accounts
+2025-08-25 02:58:03 | DEBUG    | CoinbaseAPI | 📥 Réponse: 51 comptes trouvés
