@@ -1,5 +1,0 @@
-2025-08-23 22:30:50,064 - ai_trading - ERROR - ai_trading.py:275 - Erreur dans la génération de recommandation: '>' not supported between instances of 'NoneType' and 'int'
-2025-08-23 22:30:52,079 - ai_trading - ERROR - ai_trading.py:275 - Erreur dans la génération de recommandation: '>' not supported between instances of 'NoneType' and 'int'
-2025-08-23 22:30:52,800 - __main__ - ERROR - app.py:700 - {"event": "Error executing AI auto-trade: coinbaseadvanced does not have a sandbox URL", "logger": "__main__", "level": "error", "timestamp": "2025-08-23T20:30:52.800475Z"}
-2025-08-23 22:30:56,835 - ai_trading - ERROR - ai_trading.py:275 - Erreur dans la génération de recommandation: '>' not supported between instances of 'NoneType' and 'int'
-2025-08-23 22:31:02,324 - ai_trading - ERROR - ai_trading.py:275 - Erreur dans la génération de recommandation: '>' not supported between instances of 'NoneType' and 'int'

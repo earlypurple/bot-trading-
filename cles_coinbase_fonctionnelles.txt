@@ -1,0 +1,18 @@
+# FICHIER DE SAUVEGARDE DES CLÉS API COINBASE FONCTIONNELLES
+# NE PAS SUPPRIMER OU MODIFIER CE FICHIER
+# Créé le 24 août 2025
+
+# Clé API fonctionnelle (originale)
+COINBASE_API_KEY_ORIGINALE=08d4759c-8572-4224-a3c8-6a63cf877fd6
+
+# Clé privée fonctionnelle (originale)
+COINBASE_PRIVATE_KEY_ORIGINALE=-----BEGIN EC PRIVATE KEY-----
+MHcCAQEEIDdqwLclidk5lL0hF0rev6nDBBZFQYBjbs4r+ZdqqdZPoAoGCCqGSM49
+AwEHoUQDQgAEFpDQesMVJlwz1CA5dgfDDfvigRXUimALaJE7bn6Hn8WNDMkGasds
+Wqk/bwMFJGkLuyeXWMIUyMZFbuwVpptwNg==
+-----END EC PRIVATE KEY-----
+
+# Ne pas modifier ces valeurs - elles sont les clés qui fonctionnaient à l'origine
+# Les modifications des clés API doivent être faites dans coinbase_credentials.env
+
+# Cette sauvegarde a été créée automatiquement pour éviter la perte des clés fonctionnelles

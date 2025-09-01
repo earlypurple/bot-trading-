@@ -33,5 +33,5 @@ echo "✨ Lancement du dashboard..."
 echo "📊 URL du dashboard: http://localhost:8088"
 echo ""
 
-# Lancement du script Python
-python "$PROJET_DIR/dashboard_trading_pro.py"
+# Lancement du script Python avec debug
+python "$PROJET_DIR/dashboard_trading_pro.py" --debug --test-mode
