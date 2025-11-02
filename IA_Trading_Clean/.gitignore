@@ -1,0 +1,19 @@
+# Environments
+.env
+.venv
+venv/
+env/
+
+# Credentials
+coinbase_credentials.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDEs
+.idea/
+.vscode/

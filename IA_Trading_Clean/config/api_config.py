@@ -5,18 +5,33 @@ Configuration API Coinbase - Clés fonctionnelles
 Dernière mise à jour: 24/08/2025
 """
 
+import os
+from dotenv import load_dotenv
+
+# Construire le chemin vers le fichier .env qui se trouve à la racine de IA_Trading_Clean
+# __file__ -> IA_Trading_Clean/config/api_config.py
+# os.path.dirname(__file__) -> IA_Trading_Clean/config
+# os.path.dirname(os.path.dirname(__file__)) -> IA_Trading_Clean
+dotenv_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'coinbase_credentials.env')
+
+# Vérifier si le fichier existe avant de charger
+if not os.path.exists(dotenv_path):
+    raise FileNotFoundError(f"Fichier de configuration '{dotenv_path}' introuvable. Assurez-vous qu'il existe.")
+
+load_dotenv(dotenv_path=dotenv_path)
+
 # Configuration API Coinbase
 API_CONFIG = {
     'exchange': 'coinbase',
-    'coinbase_api_key': '7bb7aaf0-8571-44ee-90cb-fa485597d0e8',
-    'coinbase_api_secret': '''-----BEGIN EC PRIVATE KEY-----
-MHcCAQEEID8hv4KFza4u5TdKTJZ756KlN0JUqwBPViMFynUyNkhRoAoGCCqGSM49
-AwEHoUQDQgAEmGfueWxK4Ie/9T5o5HAgUqISxo5+ZgXHiE6/DRVk1F9mlDQT8kIh
-/kwtdZERNu52cX1WX0Est83oxc2O4ThTTQ==
------END EC PRIVATE KEY-----''',
-    'coinbase_passphrase': 'ma_passphrase_securisee',
+    'coinbase_api_key': os.getenv('COINBASE_API_KEY'),
+    'coinbase_api_secret': os.getenv('COINBASE_API_SECRET'),
+    'coinbase_passphrase': os.getenv('COINBASE_PASSPHRASE'),
     'sandbox': False  # Mettre True pour le mode test
 }
+
+# Vérification que les clés sont bien chargées depuis le .env
+if not all([API_CONFIG['coinbase_api_key'], API_CONFIG['coinbase_api_secret'], API_CONFIG['coinbase_passphrase']]):
+    raise ValueError("Clés API non chargées. Vérifiez votre fichier 'coinbase_credentials.env'.")
 
 # Configuration Trading
 TRADING_CONFIG = {
