@@ -47,8 +47,7 @@ class AITradingBot:
         try:
             self.exchange = ccxt.coinbase({
                 'apiKey': self.api_config['coinbase_api_key'],
-                'secret': self.api_config['coinbase_api_secret'],
-                'passphrase': self.api_config['coinbase_passphrase'],
+                'secret': self.api_config['coinbase_private_key'],
                 'sandbox': self.api_config['sandbox'],
                 'enableRateLimit': True,
             })

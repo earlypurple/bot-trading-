@@ -24,13 +24,12 @@ load_dotenv(dotenv_path=dotenv_path)
 API_CONFIG = {
     'exchange': 'coinbase',
     'coinbase_api_key': os.getenv('COINBASE_API_KEY'),
-    'coinbase_api_secret': os.getenv('COINBASE_API_SECRET'),
-    'coinbase_passphrase': os.getenv('COINBASE_PASSPHRASE'),
+    'coinbase_private_key': os.getenv('COINBASE_PRIVATE_KEY'),
     'sandbox': False  # Mettre True pour le mode test
 }
 
 # Vérification que les clés sont bien chargées depuis le .env
-if not all([API_CONFIG['coinbase_api_key'], API_CONFIG['coinbase_api_secret'], API_CONFIG['coinbase_passphrase']]):
+if not all([API_CONFIG['coinbase_api_key'], API_CONFIG['coinbase_private_key']]):
     raise ValueError("Clés API non chargées. Vérifiez votre fichier 'coinbase_credentials.env'.")
 
 # Configuration Trading

@@ -20,8 +20,7 @@ def test_portfolio():
         # Configuration exchange
         exchange = ccxt.coinbase({
             'apiKey': API_CONFIG['coinbase_api_key'],
-            'secret': API_CONFIG['coinbase_api_secret'],
-            'passphrase': API_CONFIG['coinbase_passphrase'],
+            'secret': API_CONFIG['coinbase_private_key'],
             'sandbox': API_CONFIG['sandbox'],
             'enableRateLimit': True,
         })
